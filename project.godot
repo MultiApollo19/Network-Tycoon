@@ -11,12 +11,17 @@ config_version=4
 [application]
 
 config/name="Project ISP_Souce"
+run/main_scene="res://Assets/Maps/DevScene.tscn"
 boot_splash/fullsize=false
 config/icon="res://icon.png"
 
 [editor_plugins]
 
 enabled=PoolStringArray( "res://addons/MagicaVoxel_Importer_with_Extensions/plugin.cfg" )
+
+[gdnative]
+
+singletons=[  ]
 
 [physics]
 
