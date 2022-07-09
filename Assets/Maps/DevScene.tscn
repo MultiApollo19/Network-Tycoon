@@ -1,11 +1,13 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://default_env.tres" type="Environment" id=1]
-[ext_resource path="res://Assets/Models/hq_floor.vox" type="ArrayMesh" id=2]
-[ext_resource path="res://Assets/Models/hq_walls.vox" type="ArrayMesh" id=3]
-[ext_resource path="res://Assets/Models/hq_crt.vox" type="ArrayMesh" id=4]
+[ext_resource path="res://Assets/Models/HQ/hq_floor.vox" type="ArrayMesh" id=2]
+[ext_resource path="res://Assets/Models/HQ/hq_walls.vox" type="ArrayMesh" id=3]
+[ext_resource path="res://Assets/Models/HQ/hq_crt.vox" type="ArrayMesh" id=4]
 [ext_resource path="res://Assets/Prefabs/hq_serverold.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Assets/Models/hq_table.vox" type="ArrayMesh" id=6]
+[ext_resource path="res://Assets/Models/HQ/hq_table.vox" type="ArrayMesh" id=6]
+[ext_resource path="res://Assets/Models/HQ/hq_oldkeyboard.vox" type="ArrayMesh" id=7]
+[ext_resource path="res://Assets/Models/HQ/hq_pcold.vox" type="ArrayMesh" id=8]
 
 [node name="Spatial" type="Spatial"]
 
@@ -567,9 +569,6 @@ material/0 = null
 [node name="hq_server1" parent="Walls" instance=ExtResource( 5 )]
 transform = Transform( 0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 30, 4, 1 )
 
-[node name="hq_server2" parent="Walls" instance=ExtResource( 5 )]
-transform = Transform( 0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 19, 4, 1 )
-
 [node name="hq_server3" parent="Walls" instance=ExtResource( 5 )]
 transform = Transform( 0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 21.5, 0, 1 )
 
@@ -584,16 +583,31 @@ mesh = ExtResource( 6 )
 material/0 = null
 
 [node name="hq_crt" type="MeshInstance" parent="."]
-transform = Transform( -0.7, 0, -1.05697e-07, 0, 0.7, 0, 1.05697e-07, 0, -0.7, 26, 3.7, 0.999999 )
+transform = Transform( -0.634415, 0, -0.295833, 0, 0.7, 0, 0.295833, 0, -0.634415, 24.4175, 3.7, -0.0274752 )
 mesh = ExtResource( 4 )
 material/0 = null
 
 [node name="hq_table3" type="MeshInstance" parent="."]
-transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 16, 0, 1 )
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2.5, 16, 0, 1.4 )
 mesh = ExtResource( 6 )
 material/0 = null
 
 [node name="hq_crt2" type="MeshInstance" parent="."]
-transform = Transform( -0.7, 0, -1.05697e-07, 0, 0.7, 0, 1.05697e-07, 0, -0.7, 15, 3.7, 1 )
+transform = Transform( -0.606218, 0, -0.35, 0, 0.7, 0, 0.35, 0, -0.606218, 13.7304, 5.2, 0.000961959 )
 mesh = ExtResource( 4 )
+material/0 = null
+
+[node name="hq_pcold" type="MeshInstance" parent="."]
+transform = Transform( 0.606218, 0, 0.35, 0, 0.7, 0, -0.35, 0, 0.606218, 13.7304, 4, 0.0009619 )
+mesh = ExtResource( 8 )
+material/0 = null
+
+[node name="hq_oldkeyboard" type="MeshInstance" parent="."]
+transform = Transform( 0.492404, 0, 0.0868241, 0, 0.5, 0, -0.0868241, 0, 0.492404, 17.3939, 4, 2.73054 )
+mesh = ExtResource( 7 )
+material/0 = null
+
+[node name="hq_oldkeyboard2" type="MeshInstance" parent="."]
+transform = Transform( 0.498097, 0, 0.0435779, 0, 0.5, 0, -0.0435779, 0, 0.498097, 26.7527, 4, 2.16734 )
+mesh = ExtResource( 7 )
 material/0 = null
