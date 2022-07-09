@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://default_env.tres" type="Environment" id=1]
 [ext_resource path="res://Assets/Models/hq_floor.vox" type="ArrayMesh" id=2]
 [ext_resource path="res://Assets/Models/hq_walls.vox" type="ArrayMesh" id=3]
-[ext_resource path="res://Assets/Models/hq_serverold.vox" type="ArrayMesh" id=4]
+[ext_resource path="res://Assets/Models/hq_crt.vox" type="ArrayMesh" id=4]
 [ext_resource path="res://Assets/Prefabs/hq_serverold.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Assets/Models/hq_table.vox" type="ArrayMesh" id=6]
 
 [node name="Spatial" type="Spatial"]
 
@@ -21,10 +22,10 @@ layers = 2
 extents = Vector3( 50, 50, 50 )
 
 [node name="Camera" type="Camera" parent="."]
-transform = Transform( 0.707107, 0.353553, -0.612373, 0, 0.866026, 0.5, 0.707107, -0.353553, 0.612373, -63.1705, 50.4758, 96.0692 )
+transform = Transform( 0.707107, 0.353553, -0.612373, 0, 0.866026, 0.499999, 0.707107, -0.353553, 0.612373, -32.2677, 32.172, 65.1664 )
 projection = 1
 fov = 56.25
-size = 100.0
+size = 75.0
 far = 600.0
 
 [node name="Walls" type="Node" parent="."]
@@ -564,27 +565,35 @@ skeleton = NodePath("")
 material/0 = null
 
 [node name="hq_server1" parent="Walls" instance=ExtResource( 5 )]
+transform = Transform( 0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 30, 4, 1 )
 
-[node name="hq_server2" type="MeshInstance" parent="Walls"]
-transform = Transform( -8.74228e-08, 0, -2, 0, 2, 0, 2, 0, -8.74228e-08, 27, 0, 18 )
-mesh = ExtResource( 4 )
-skeleton = NodePath("../../WorldEnvironment")
+[node name="hq_server2" parent="Walls" instance=ExtResource( 5 )]
+transform = Transform( 0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 19, 4, 1 )
+
+[node name="hq_server3" parent="Walls" instance=ExtResource( 5 )]
+transform = Transform( 0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 21.5, 0, 1 )
+
+[node name="hq_table" type="MeshInstance" parent="."]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -12, 0, 1 )
+mesh = ExtResource( 6 )
 material/0 = null
 
-[node name="hq_server3" type="MeshInstance" parent="Walls"]
-transform = Transform( -8.74228e-08, 0, -2, 0, 2, 0, 2, 0, -8.74228e-08, 27, 0, 25 )
-mesh = ExtResource( 4 )
-skeleton = NodePath("../../WorldEnvironment")
+[node name="hq_table2" type="MeshInstance" parent="."]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 27, 0, 1 )
+mesh = ExtResource( 6 )
 material/0 = null
 
-[node name="hq_server4" type="MeshInstance" parent="Walls"]
-transform = Transform( -8.74228e-08, 0, -2, 0, 2, 0, 2, 0, -8.74228e-08, 27, 0, 32 )
+[node name="hq_crt" type="MeshInstance" parent="."]
+transform = Transform( -0.7, 0, -1.05697e-07, 0, 0.7, 0, 1.05697e-07, 0, -0.7, 26, 3.7, 0.999999 )
 mesh = ExtResource( 4 )
-skeleton = NodePath("../../WorldEnvironment")
 material/0 = null
 
-[node name="hq_server5" type="MeshInstance" parent="Walls"]
-transform = Transform( -8.74228e-08, 0, -2, 0, 2, 0, 2, 0, -8.74228e-08, 27, 0, 39 )
+[node name="hq_table3" type="MeshInstance" parent="."]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 16, 0, 1 )
+mesh = ExtResource( 6 )
+material/0 = null
+
+[node name="hq_crt2" type="MeshInstance" parent="."]
+transform = Transform( -0.7, 0, -1.05697e-07, 0, 0.7, 0, 1.05697e-07, 0, -0.7, 15, 3.7, 1 )
 mesh = ExtResource( 4 )
-skeleton = NodePath("../../WorldEnvironment")
 material/0 = null
