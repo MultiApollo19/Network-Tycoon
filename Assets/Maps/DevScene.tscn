@@ -1,13 +1,17 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://default_env.tres" type="Environment" id=1]
 [ext_resource path="res://Assets/Models/HQ/hq_floor.vox" type="ArrayMesh" id=2]
-[ext_resource path="res://Assets/Models/HQ/hq_walls.vox" type="ArrayMesh" id=3]
+[ext_resource path="res://Assets/Prefabs/HQ/hq_walls.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Assets/Models/HQ/hq_crt.vox" type="ArrayMesh" id=4]
-[ext_resource path="res://Assets/Prefabs/hq_serverold.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Assets/Prefabs/HQ/hq_serverold.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Assets/Models/HQ/hq_table.vox" type="ArrayMesh" id=6]
 [ext_resource path="res://Assets/Models/HQ/hq_oldkeyboard.vox" type="ArrayMesh" id=7]
 [ext_resource path="res://Assets/Models/HQ/hq_pcold.vox" type="ArrayMesh" id=8]
+[ext_resource path="res://Assets/Scripts/Walls.gd" type="Script" id=9]
+
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 73, 6, 34 )
 
 [node name="Spatial" type="Spatial"]
 
@@ -29,548 +33,559 @@ projection = 1
 fov = 56.25
 size = 75.0
 far = 600.0
+script = ExtResource( 9 )
+
+[node name="WallDetector" type="Area" parent="Camera"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Camera/WallDetector"]
+transform = Transform( 0.996195, -4.21469e-08, -0.0871558, -0.0435778, 0.866025, -0.498098, 0.0754791, 0.5, 0.86273, 5.72205e-06, -19.8827, -19.5622 )
+shape = SubResource( 1 )
 
 [node name="Walls" type="Node" parent="."]
 
-[node name="hq_walls" type="MeshInstance" parent="Walls"]
+[node name="hq_walls" parent="Walls" instance=ExtResource( 3 )]
 transform = Transform( -0.00363025, 0, 0.999998, 0, 2, 0, -2, 0, -0.00181512, 32.3376, -0.019073, 2.71634 )
-mesh = ExtResource( 3 )
-skeleton = NodePath("../..")
-material/0 = null
 
-[node name="hq_walls2" type="MeshInstance" parent="Walls"]
-transform = Transform( -2, 0, -0.00181499, 0, 2, 0, 0.00362998, 0, -0.999998, 27.3285, -0.0291707, -2.27457 )
-mesh = ExtResource( 3 )
-skeleton = NodePath("../..")
-material/0 = null
+[node name="hq_walls2" parent="Walls" instance=ExtResource( 3 )]
+transform = Transform( -0.00363025, 0, 0.999998, 0, 2, 0, -2, 0, -0.00181512, 32.3522, -0.019073, 10.7163 )
 
-[node name="hq_floor" type="MeshInstance" parent="Walls"]
+[node name="hq_walls3" parent="Walls" instance=ExtResource( 3 )]
+transform = Transform( -0.00363025, 0, 0.999998, 0, 2, 0, -2, 0, -0.00181512, 32.3667, -0.019073, 18.7163 )
+
+[node name="hq_walls4" parent="Walls" instance=ExtResource( 3 )]
+transform = Transform( -0.00363025, 0, 0.999998, 0, 2, 0, -2, 0, -0.00181512, 32.3812, -0.019073, 26.7163 )
+
+[node name="hq_walls5" parent="Walls" instance=ExtResource( 3 )]
+transform = Transform( -0.00363025, 0, 0.999998, 0, 2, 0, -2, 0, -0.00181512, 32.3957, -0.019073, 34.7163 )
+
+[node name="hq_walls6" parent="Walls" instance=ExtResource( 3 )]
+transform = Transform( -0.00363025, 0, 0.999998, 0, 2, 0, -2, 0, -0.00181512, 32.4102, -0.019073, 42.7163 )
+
+[node name="hq_walls7" parent="Walls" instance=ExtResource( 3 )]
+transform = Transform( -0.00363025, 0, 0.999998, 0, 2, 0, -2, 0, -0.00181512, 32.4248, -0.019073, 50.7163 )
+
+[node name="hq_walls8" parent="Walls" instance=ExtResource( 3 )]
+transform = Transform( -0.00363025, 0, 0.999998, 0, 2, 0, -2, 0, -0.00181512, 32.4393, -0.019073, 58.7162 )
+
+[node name="hq_walls9" parent="Walls" instance=ExtResource( 3 )]
+transform = Transform( -0.00363025, 0, 0.999998, 0, 2, 0, -2, 0, -0.00181512, 32.4538, -0.019073, 66.7162 )
+
+[node name="hq_walls10" parent="Walls" instance=ExtResource( 3 )]
+transform = Transform( 2, 0, 0.00181508, 0, 2, 0, -0.00363016, 0, 0.999998, 27.4629, -0.019073, 71.7253 )
+
+[node name="hq_walls11" parent="Walls" instance=ExtResource( 3 )]
+transform = Transform( 2, 0, 0.00181508, 0, 2, 0, -0.00363016, 0, 0.999998, 19.4629, -0.019073, 71.7398 )
+
+[node name="hq_walls12" parent="Walls" instance=ExtResource( 3 )]
+transform = Transform( 2, 0, 0.00181508, 0, 2, 0, -0.00363016, 0, 0.999998, 11.4629, -0.019073, 71.7543 )
+
+[node name="hq_walls13" parent="Walls" instance=ExtResource( 3 )]
+transform = Transform( 2, 0, 0.00181508, 0, 2, 0, -0.00363016, 0, 0.999998, 3.46293, -0.019073, 71.7688 )
+
+[node name="hq_walls14" parent="Walls" instance=ExtResource( 3 )]
+transform = Transform( 2, 0, 0.00181508, 0, 2, 0, -0.00363016, 0, 0.999998, -4.53705, -0.019073, 71.7834 )
+
+[node name="hq_walls15" parent="Walls" instance=ExtResource( 3 )]
+transform = Transform( 2, 0, 0.00181508, 0, 2, 0, -0.00363016, 0, 0.999998, -12.537, -0.019073, 71.7979 )
+
+[node name="hq_walls16" parent="Walls" instance=ExtResource( 3 )]
+transform = Transform( 2, 0, 0.00181508, 0, 2, 0, -0.00363016, 0, 0.999998, -20.537, -0.019073, 71.8124 )
+
+[node name="hq_walls17" parent="Walls" instance=ExtResource( 3 )]
+transform = Transform( 2, 0, 0.00181508, 0, 2, 0, -0.00363016, 0, 0.999998, -28.537, -0.019073, 71.8269 )
+
+[node name="hq_walls18" parent="Walls" instance=ExtResource( 3 )]
+transform = Transform( 0.00363008, 0, -0.999998, 0, 2, 0, 2, 0, 0.00181504, -33.5461, -0.019073, 66.836 )
+
+[node name="hq_walls19" parent="Walls" instance=ExtResource( 3 )]
+transform = Transform( 0.00363008, 0, -0.999998, 0, 2, 0, 2, 0, 0.00181504, -33.5606, -0.019073, 58.836 )
+
+[node name="hq_walls20" parent="Walls" instance=ExtResource( 3 )]
+transform = Transform( 0.00363008, 0, -0.999998, 0, 2, 0, 2, 0, 0.00181504, -33.5751, -0.019073, 50.836 )
+
+[node name="hq_walls21" parent="Walls" instance=ExtResource( 3 )]
+transform = Transform( 0.00363008, 0, -0.999998, 0, 2, 0, 2, 0, 0.00181504, -33.5896, -0.019073, 42.8361 )
+
+[node name="hq_walls22" parent="Walls" instance=ExtResource( 3 )]
+transform = Transform( 0.00363008, 0, -0.999998, 0, 2, 0, 2, 0, 0.00181504, -33.6042, -0.019073, 34.8361 )
+
+[node name="hq_walls23" parent="Walls" instance=ExtResource( 3 )]
+transform = Transform( 0.00363008, 0, -0.999998, 0, 2, 0, 2, 0, 0.00181504, -33.6187, -0.019073, 26.8361 )
+
+[node name="hq_walls24" parent="Walls" instance=ExtResource( 3 )]
+transform = Transform( 0.00363008, 0, -0.999998, 0, 2, 0, 2, 0, 0.00181504, -33.6332, -0.019073, 18.8361 )
+
+[node name="hq_walls25" parent="Walls" instance=ExtResource( 3 )]
+transform = Transform( 0.00363008, 0, -0.999998, 0, 2, 0, 2, 0, 0.00181504, -33.6477, -0.019073, 10.8361 )
+
+[node name="hq_walls26" parent="Walls" instance=ExtResource( 3 )]
+transform = Transform( 0.00363008, 0, -0.999998, 0, 2, 0, 2, 0, 0.00181504, -33.6622, -0.019073, 2.83612 )
+
+[node name="hq_walls27" parent="Walls" instance=ExtResource( 3 )]
+transform = Transform( -2, 0, -0.00181499, 0, 2, 0, 0.00362999, 0, -0.999998, -28.6713, -0.019073, -2.17295 )
+
+[node name="hq_walls28" parent="Walls" instance=ExtResource( 3 )]
+transform = Transform( -2, 0, -0.00181499, 0, 2, 0, 0.00362999, 0, -0.999998, -20.6713, -0.019073, -2.18747 )
+
+[node name="hq_walls29" parent="Walls" instance=ExtResource( 3 )]
+transform = Transform( -2, 0, -0.00181499, 0, 2, 0, 0.00362999, 0, -0.999998, -12.6713, -0.019073, -2.20199 )
+
+[node name="hq_walls30" parent="Walls" instance=ExtResource( 3 )]
+transform = Transform( -2, 0, -0.00181499, 0, 2, 0, 0.00362999, 0, -0.999998, -4.67135, -0.019073, -2.21651 )
+
+[node name="hq_walls31" parent="Walls" instance=ExtResource( 3 )]
+transform = Transform( -2, 0, -0.00181499, 0, 2, 0, 0.00362999, 0, -0.999998, 3.32864, -0.019073, -2.23103 )
+
+[node name="hq_walls32" parent="Walls" instance=ExtResource( 3 )]
+transform = Transform( -2, 0, -0.00181499, 0, 2, 0, 0.00362999, 0, -0.999998, 11.3286, -0.019073, -2.24555 )
+
+[node name="hq_walls33" parent="Walls" instance=ExtResource( 3 )]
+transform = Transform( -2, 0, -0.00181499, 0, 2, 0, 0.00362999, 0, -0.999998, 19.3286, -0.019073, -2.26007 )
+
+[node name="hq_walls34" parent="Walls" instance=ExtResource( 3 )]
+transform = Transform( -2, 0, -0.00181499, 0, 2, 0, 0.00362999, 0, -0.999998, 27.3286, -0.019073, -2.27459 )
+
+[node name="Floor" type="Node" parent="."]
+
+[node name="hq_floor" type="MeshInstance" parent="Floor"]
 transform = Transform( -0.000803081, 0, 2, 0, 2, 0, -2, 0, -0.000803081, 27.3595, -2.01449, 2.71407 )
 mesh = ExtResource( 2 )
 skeleton = NodePath("")
 material/0 = null
 
-[node name="hq_walls11" type="MeshInstance" parent="Walls"]
-transform = Transform( -2, 0, -0.00181499, 0, 2, 0, 0.00362998, 0, -0.999998, 19.3285, -0.0291707, -2.26005 )
-mesh = ExtResource( 3 )
-skeleton = NodePath("../..")
-material/0 = null
-
-[node name="hq_floor10" type="MeshInstance" parent="Walls"]
+[node name="hq_floor10" type="MeshInstance" parent="Floor"]
 transform = Transform( -0.000803081, 0, 2, 0, 2, 0, -2, 0, -0.000803081, 19.3595, -2.01449, 2.71728 )
 mesh = ExtResource( 2 )
 skeleton = NodePath("")
 material/0 = null
 
-[node name="hq_walls12" type="MeshInstance" parent="Walls"]
-transform = Transform( -2, 0, -0.00181499, 0, 2, 0, 0.00362998, 0, -0.999998, 11.3285, -0.0291707, -2.24553 )
-mesh = ExtResource( 3 )
-skeleton = NodePath("../..")
-material/0 = null
-
-[node name="hq_floor11" type="MeshInstance" parent="Walls"]
+[node name="hq_floor11" type="MeshInstance" parent="Floor"]
 transform = Transform( -0.000803081, 0, 2, 0, 2, 0, -2, 0, -0.000803081, 11.3595, -2.01449, 2.72049 )
 mesh = ExtResource( 2 )
 skeleton = NodePath("")
 material/0 = null
 
-[node name="hq_walls13" type="MeshInstance" parent="Walls"]
-transform = Transform( -2, 0, -0.00181499, 0, 2, 0, 0.00362998, 0, -0.999998, 3.32854, -0.0291707, -2.23101 )
-mesh = ExtResource( 3 )
-skeleton = NodePath("../..")
-material/0 = null
-
-[node name="hq_floor12" type="MeshInstance" parent="Walls"]
+[node name="hq_floor12" type="MeshInstance" parent="Floor"]
 transform = Transform( -0.000803081, 0, 2, 0, 2, 0, -2, 0, -0.000803081, 3.35946, -2.01449, 2.7237 )
 mesh = ExtResource( 2 )
 skeleton = NodePath("")
 material/0 = null
 
-[node name="hq_walls14" type="MeshInstance" parent="Walls"]
-transform = Transform( -2, 0, -0.00181499, 0, 2, 0, 0.00362998, 0, -0.999998, -4.67144, -0.0291707, -2.21649 )
-mesh = ExtResource( 3 )
-skeleton = NodePath("../..")
-material/0 = null
-
-[node name="hq_floor13" type="MeshInstance" parent="Walls"]
+[node name="hq_floor13" type="MeshInstance" parent="Floor"]
 transform = Transform( -0.000803081, 0, 2, 0, 2, 0, -2, 0, -0.000803081, -4.64054, -2.01449, 2.72692 )
 mesh = ExtResource( 2 )
 skeleton = NodePath("")
 material/0 = null
 
-[node name="hq_walls15" type="MeshInstance" parent="Walls"]
-transform = Transform( -2, 0, -0.00181499, 0, 2, 0, 0.00362998, 0, -0.999998, -12.6714, -0.0291707, -2.20197 )
-mesh = ExtResource( 3 )
-skeleton = NodePath("../..")
-material/0 = null
-
-[node name="hq_floor14" type="MeshInstance" parent="Walls"]
+[node name="hq_floor14" type="MeshInstance" parent="Floor"]
 transform = Transform( -0.000803081, 0, 2, 0, 2, 0, -2, 0, -0.000803081, -12.6405, -2.01449, 2.73013 )
 mesh = ExtResource( 2 )
 skeleton = NodePath("")
 material/0 = null
 
-[node name="hq_walls16" type="MeshInstance" parent="Walls"]
-transform = Transform( -2, 0, -0.00181499, 0, 2, 0, 0.00362998, 0, -0.999998, -20.6714, -0.0291707, -2.18745 )
-mesh = ExtResource( 3 )
-skeleton = NodePath("../..")
-material/0 = null
-
-[node name="hq_floor15" type="MeshInstance" parent="Walls"]
+[node name="hq_floor15" type="MeshInstance" parent="Floor"]
 transform = Transform( -0.000803081, 0, 2, 0, 2, 0, -2, 0, -0.000803081, -20.6405, -2.01449, 2.73334 )
 mesh = ExtResource( 2 )
 skeleton = NodePath("")
 material/0 = null
 
-[node name="hq_walls17" type="MeshInstance" parent="Walls"]
-transform = Transform( -2, 0, -0.00181499, 0, 2, 0, 0.00362998, 0, -0.999998, -28.6714, -0.0291707, -2.17293 )
-mesh = ExtResource( 3 )
-skeleton = NodePath("../..")
-material/0 = null
-
-[node name="hq_floor16" type="MeshInstance" parent="Walls"]
+[node name="hq_floor16" type="MeshInstance" parent="Floor"]
 transform = Transform( -0.000803081, 0, 2, 0, 2, 0, -2, 0, -0.000803081, -28.6405, -2.01449, 2.73655 )
 mesh = ExtResource( 2 )
 skeleton = NodePath("")
 material/0 = null
 
-[node name="hq_walls3" type="MeshInstance" parent="Walls"]
-transform = Transform( -0.00363025, 0, 0.999998, 0, 2, 0, -2, 0, -0.00181512, 32.3521, -0.019073, 10.7163 )
-mesh = ExtResource( 3 )
-skeleton = NodePath("../..")
-material/0 = null
-
-[node name="hq_floor2" type="MeshInstance" parent="Walls"]
+[node name="hq_floor2" type="MeshInstance" parent="Floor"]
 transform = Transform( -0.000803081, 0, 2, 0, 2, 0, -2, 0, -0.000803081, 27.3627, -2.01449, 10.7141 )
 mesh = ExtResource( 2 )
 skeleton = NodePath("")
 material/0 = null
 
-[node name="hq_walls4" type="MeshInstance" parent="Walls"]
-transform = Transform( -0.00363025, 0, 0.999998, 0, 2, 0, -2, 0, -0.00181512, 32.3666, -0.019073, 18.7163 )
-mesh = ExtResource( 3 )
-skeleton = NodePath("../..")
-material/0 = null
-
-[node name="hq_floor3" type="MeshInstance" parent="Walls"]
+[node name="hq_floor3" type="MeshInstance" parent="Floor"]
 transform = Transform( -0.000803081, 0, 2, 0, 2, 0, -2, 0, -0.000803081, 27.3659, -2.01449, 18.7141 )
 mesh = ExtResource( 2 )
 skeleton = NodePath("")
 material/0 = null
 
-[node name="hq_walls5" type="MeshInstance" parent="Walls"]
-transform = Transform( -0.00363025, 0, 0.999998, 0, 2, 0, -2, 0, -0.00181512, 32.3811, -0.019073, 26.7163 )
-mesh = ExtResource( 3 )
-skeleton = NodePath("../..")
-material/0 = null
-
-[node name="hq_floor4" type="MeshInstance" parent="Walls"]
+[node name="hq_floor4" type="MeshInstance" parent="Floor"]
 transform = Transform( -0.000803081, 0, 2, 0, 2, 0, -2, 0, -0.000803081, 27.3691, -2.01449, 26.7141 )
 mesh = ExtResource( 2 )
 skeleton = NodePath("")
 material/0 = null
 
-[node name="hq_walls6" type="MeshInstance" parent="Walls"]
-transform = Transform( -0.00363025, 0, 0.999998, 0, 2, 0, -2, 0, -0.00181512, 32.3957, -0.019073, 34.7163 )
-mesh = ExtResource( 3 )
-skeleton = NodePath("../..")
-material/0 = null
-
-[node name="hq_floor5" type="MeshInstance" parent="Walls"]
+[node name="hq_floor5" type="MeshInstance" parent="Floor"]
 transform = Transform( -0.000803081, 0, 2, 0, 2, 0, -2, 0, -0.000803081, 27.3723, -2.01449, 34.7141 )
 mesh = ExtResource( 2 )
 skeleton = NodePath("")
 material/0 = null
 
-[node name="hq_walls7" type="MeshInstance" parent="Walls"]
-transform = Transform( -0.00363025, 0, 0.999998, 0, 2, 0, -2, 0, -0.00181512, 32.4102, -0.019073, 42.7163 )
-mesh = ExtResource( 3 )
-skeleton = NodePath("../..")
-material/0 = null
-
-[node name="hq_floor6" type="MeshInstance" parent="Walls"]
+[node name="hq_floor6" type="MeshInstance" parent="Floor"]
 transform = Transform( -0.000803081, 0, 2, 0, 2, 0, -2, 0, -0.000803081, 27.3755, -2.01449, 42.7141 )
 mesh = ExtResource( 2 )
 skeleton = NodePath("")
 material/0 = null
 
-[node name="hq_walls8" type="MeshInstance" parent="Walls"]
-transform = Transform( -0.00363025, 0, 0.999998, 0, 2, 0, -2, 0, -0.00181512, 32.4247, -0.019073, 50.7163 )
-mesh = ExtResource( 3 )
-skeleton = NodePath("../..")
-material/0 = null
-
-[node name="hq_floor7" type="MeshInstance" parent="Walls"]
+[node name="hq_floor7" type="MeshInstance" parent="Floor"]
 transform = Transform( -0.000803081, 0, 2, 0, 2, 0, -2, 0, -0.000803081, 27.3787, -2.01449, 50.7141 )
 mesh = ExtResource( 2 )
 skeleton = NodePath("")
 material/0 = null
 
-[node name="hq_walls9" type="MeshInstance" parent="Walls"]
-transform = Transform( -0.00363025, 0, 0.999998, 0, 2, 0, -2, 0, -0.00181512, 32.4392, -0.019073, 58.7163 )
-mesh = ExtResource( 3 )
-skeleton = NodePath("../..")
-material/0 = null
-
-[node name="hq_floor8" type="MeshInstance" parent="Walls"]
+[node name="hq_floor8" type="MeshInstance" parent="Floor"]
 transform = Transform( -0.000803081, 0, 2, 0, 2, 0, -2, 0, -0.000803081, 27.3819, -2.01449, 58.7141 )
 mesh = ExtResource( 2 )
 skeleton = NodePath("")
 material/0 = null
 
-[node name="hq_walls10" type="MeshInstance" parent="Walls"]
-transform = Transform( -0.00363025, 0, 0.999998, 0, 2, 0, -2, 0, -0.00181512, 32.4537, -0.019073, 66.7162 )
-mesh = ExtResource( 3 )
-skeleton = NodePath("../..")
-material/0 = null
-
-[node name="hq_floor9" type="MeshInstance" parent="Walls"]
+[node name="hq_floor9" type="MeshInstance" parent="Floor"]
 transform = Transform( -0.000803081, 0, 2, 0, 2, 0, -2, 0, -0.000803081, 27.3852, -2.01449, 66.7141 )
 mesh = ExtResource( 2 )
 skeleton = NodePath("")
 material/0 = null
 
-[node name="hq_floor17" type="MeshInstance" parent="Walls"]
+[node name="hq_floor17" type="MeshInstance" parent="Floor"]
 transform = Transform( -0.000803081, 0, 2, 0, 2, 0, -2, 0, -0.000803081, 19.3627, -2.01449, 10.7173 )
 mesh = ExtResource( 2 )
 skeleton = NodePath("")
 material/0 = null
 
-[node name="hq_floor18" type="MeshInstance" parent="Walls"]
+[node name="hq_floor18" type="MeshInstance" parent="Floor"]
 transform = Transform( -0.000803081, 0, 2, 0, 2, 0, -2, 0, -0.000803081, 19.3659, -2.01449, 18.7173 )
 mesh = ExtResource( 2 )
 skeleton = NodePath("")
 material/0 = null
 
-[node name="hq_floor19" type="MeshInstance" parent="Walls"]
+[node name="hq_floor19" type="MeshInstance" parent="Floor"]
 transform = Transform( -0.000803081, 0, 2, 0, 2, 0, -2, 0, -0.000803081, 19.3691, -2.01449, 26.7173 )
 mesh = ExtResource( 2 )
 skeleton = NodePath("")
 material/0 = null
 
-[node name="hq_floor20" type="MeshInstance" parent="Walls"]
+[node name="hq_floor20" type="MeshInstance" parent="Floor"]
 transform = Transform( -0.000803081, 0, 2, 0, 2, 0, -2, 0, -0.000803081, 19.3723, -2.01449, 34.7173 )
 mesh = ExtResource( 2 )
 skeleton = NodePath("")
 material/0 = null
 
-[node name="hq_floor21" type="MeshInstance" parent="Walls"]
+[node name="hq_floor21" type="MeshInstance" parent="Floor"]
 transform = Transform( -0.000803081, 0, 2, 0, 2, 0, -2, 0, -0.000803081, 19.3755, -2.01449, 42.7173 )
 mesh = ExtResource( 2 )
 skeleton = NodePath("")
 material/0 = null
 
-[node name="hq_floor22" type="MeshInstance" parent="Walls"]
+[node name="hq_floor22" type="MeshInstance" parent="Floor"]
 transform = Transform( -0.000803081, 0, 2, 0, 2, 0, -2, 0, -0.000803081, 19.3787, -2.01449, 50.7173 )
 mesh = ExtResource( 2 )
 skeleton = NodePath("")
 material/0 = null
 
-[node name="hq_floor23" type="MeshInstance" parent="Walls"]
+[node name="hq_floor23" type="MeshInstance" parent="Floor"]
 transform = Transform( -0.000803081, 0, 2, 0, 2, 0, -2, 0, -0.000803081, 19.3819, -2.01449, 58.7173 )
 mesh = ExtResource( 2 )
 skeleton = NodePath("")
 material/0 = null
 
-[node name="hq_floor24" type="MeshInstance" parent="Walls"]
+[node name="hq_floor24" type="MeshInstance" parent="Floor"]
 transform = Transform( -0.000803081, 0, 2, 0, 2, 0, -2, 0, -0.000803081, 19.3852, -2.01449, 66.7173 )
 mesh = ExtResource( 2 )
 skeleton = NodePath("")
 material/0 = null
 
-[node name="hq_floor25" type="MeshInstance" parent="Walls"]
+[node name="hq_floor25" type="MeshInstance" parent="Floor"]
 transform = Transform( -0.000803081, 0, 2, 0, 2, 0, -2, 0, -0.000803081, 11.3627, -2.01449, 10.7205 )
 mesh = ExtResource( 2 )
 skeleton = NodePath("")
 material/0 = null
 
-[node name="hq_floor26" type="MeshInstance" parent="Walls"]
+[node name="hq_floor26" type="MeshInstance" parent="Floor"]
 transform = Transform( -0.000803081, 0, 2, 0, 2, 0, -2, 0, -0.000803081, 11.3659, -2.01449, 18.7205 )
 mesh = ExtResource( 2 )
 skeleton = NodePath("")
 material/0 = null
 
-[node name="hq_floor27" type="MeshInstance" parent="Walls"]
+[node name="hq_floor27" type="MeshInstance" parent="Floor"]
 transform = Transform( -0.000803081, 0, 2, 0, 2, 0, -2, 0, -0.000803081, 11.3691, -2.01449, 26.7205 )
 mesh = ExtResource( 2 )
 skeleton = NodePath("")
 material/0 = null
 
-[node name="hq_floor28" type="MeshInstance" parent="Walls"]
+[node name="hq_floor28" type="MeshInstance" parent="Floor"]
 transform = Transform( -0.000803081, 0, 2, 0, 2, 0, -2, 0, -0.000803081, 11.3723, -2.01449, 34.7205 )
 mesh = ExtResource( 2 )
 skeleton = NodePath("")
 material/0 = null
 
-[node name="hq_floor29" type="MeshInstance" parent="Walls"]
+[node name="hq_floor29" type="MeshInstance" parent="Floor"]
 transform = Transform( -0.000803081, 0, 2, 0, 2, 0, -2, 0, -0.000803081, 11.3755, -2.01449, 42.7205 )
 mesh = ExtResource( 2 )
 skeleton = NodePath("")
 material/0 = null
 
-[node name="hq_floor30" type="MeshInstance" parent="Walls"]
+[node name="hq_floor30" type="MeshInstance" parent="Floor"]
 transform = Transform( -0.000803081, 0, 2, 0, 2, 0, -2, 0, -0.000803081, 11.3787, -2.01449, 50.7205 )
 mesh = ExtResource( 2 )
 skeleton = NodePath("")
 material/0 = null
 
-[node name="hq_floor31" type="MeshInstance" parent="Walls"]
+[node name="hq_floor31" type="MeshInstance" parent="Floor"]
 transform = Transform( -0.000803081, 0, 2, 0, 2, 0, -2, 0, -0.000803081, 11.3819, -2.01449, 58.7205 )
 mesh = ExtResource( 2 )
 skeleton = NodePath("")
 material/0 = null
 
-[node name="hq_floor32" type="MeshInstance" parent="Walls"]
+[node name="hq_floor32" type="MeshInstance" parent="Floor"]
 transform = Transform( -0.000803081, 0, 2, 0, 2, 0, -2, 0, -0.000803081, 11.3852, -2.01449, 66.7205 )
 mesh = ExtResource( 2 )
 skeleton = NodePath("")
 material/0 = null
 
-[node name="hq_floor33" type="MeshInstance" parent="Walls"]
+[node name="hq_floor33" type="MeshInstance" parent="Floor"]
 transform = Transform( -0.000803081, 0, 2, 0, 2, 0, -2, 0, -0.000803081, 3.36267, -2.01449, 10.7237 )
 mesh = ExtResource( 2 )
 skeleton = NodePath("")
 material/0 = null
 
-[node name="hq_floor34" type="MeshInstance" parent="Walls"]
+[node name="hq_floor34" type="MeshInstance" parent="Floor"]
 transform = Transform( -0.000803081, 0, 2, 0, 2, 0, -2, 0, -0.000803081, 3.36589, -2.01449, 18.7237 )
 mesh = ExtResource( 2 )
 skeleton = NodePath("")
 material/0 = null
 
-[node name="hq_floor35" type="MeshInstance" parent="Walls"]
+[node name="hq_floor35" type="MeshInstance" parent="Floor"]
 transform = Transform( -0.000803081, 0, 2, 0, 2, 0, -2, 0, -0.000803081, 3.3691, -2.01449, 26.7237 )
 mesh = ExtResource( 2 )
 skeleton = NodePath("")
 material/0 = null
 
-[node name="hq_floor36" type="MeshInstance" parent="Walls"]
+[node name="hq_floor36" type="MeshInstance" parent="Floor"]
 transform = Transform( -0.000803081, 0, 2, 0, 2, 0, -2, 0, -0.000803081, 3.37231, -2.01449, 34.7237 )
 mesh = ExtResource( 2 )
 skeleton = NodePath("")
 material/0 = null
 
-[node name="hq_floor37" type="MeshInstance" parent="Walls"]
+[node name="hq_floor37" type="MeshInstance" parent="Floor"]
 transform = Transform( -0.000803081, 0, 2, 0, 2, 0, -2, 0, -0.000803081, 3.37552, -2.01449, 42.7237 )
 mesh = ExtResource( 2 )
 skeleton = NodePath("")
 material/0 = null
 
-[node name="hq_floor38" type="MeshInstance" parent="Walls"]
+[node name="hq_floor38" type="MeshInstance" parent="Floor"]
 transform = Transform( -0.000803081, 0, 2, 0, 2, 0, -2, 0, -0.000803081, 3.37873, -2.01449, 50.7237 )
 mesh = ExtResource( 2 )
 skeleton = NodePath("")
 material/0 = null
 
-[node name="hq_floor39" type="MeshInstance" parent="Walls"]
+[node name="hq_floor39" type="MeshInstance" parent="Floor"]
 transform = Transform( -0.000803081, 0, 2, 0, 2, 0, -2, 0, -0.000803081, 3.38195, -2.01449, 58.7237 )
 mesh = ExtResource( 2 )
 skeleton = NodePath("")
 material/0 = null
 
-[node name="hq_floor40" type="MeshInstance" parent="Walls"]
+[node name="hq_floor40" type="MeshInstance" parent="Floor"]
 transform = Transform( -0.000803081, 0, 2, 0, 2, 0, -2, 0, -0.000803081, 3.38516, -2.01449, 66.7237 )
 mesh = ExtResource( 2 )
 skeleton = NodePath("")
 material/0 = null
 
-[node name="hq_floor41" type="MeshInstance" parent="Walls"]
+[node name="hq_floor41" type="MeshInstance" parent="Floor"]
 transform = Transform( -0.000803081, 0, 2, 0, 2, 0, -2, 0, -0.000803081, -4.63733, -2.01449, 10.7269 )
 mesh = ExtResource( 2 )
 skeleton = NodePath("")
 material/0 = null
 
-[node name="hq_floor42" type="MeshInstance" parent="Walls"]
+[node name="hq_floor42" type="MeshInstance" parent="Floor"]
 transform = Transform( -0.000803081, 0, 2, 0, 2, 0, -2, 0, -0.000803081, -4.63411, -2.01449, 18.7269 )
 mesh = ExtResource( 2 )
 skeleton = NodePath("")
 material/0 = null
 
-[node name="hq_floor43" type="MeshInstance" parent="Walls"]
+[node name="hq_floor43" type="MeshInstance" parent="Floor"]
 transform = Transform( -0.000803081, 0, 2, 0, 2, 0, -2, 0, -0.000803081, -4.6309, -2.01449, 26.7269 )
 mesh = ExtResource( 2 )
 skeleton = NodePath("")
 material/0 = null
 
-[node name="hq_floor44" type="MeshInstance" parent="Walls"]
+[node name="hq_floor44" type="MeshInstance" parent="Floor"]
 transform = Transform( -0.000803081, 0, 2, 0, 2, 0, -2, 0, -0.000803081, -4.62769, -2.01449, 34.7269 )
 mesh = ExtResource( 2 )
 skeleton = NodePath("")
 material/0 = null
 
-[node name="hq_floor45" type="MeshInstance" parent="Walls"]
+[node name="hq_floor45" type="MeshInstance" parent="Floor"]
 transform = Transform( -0.000803081, 0, 2, 0, 2, 0, -2, 0, -0.000803081, -4.62448, -2.01449, 42.7269 )
 mesh = ExtResource( 2 )
 skeleton = NodePath("")
 material/0 = null
 
-[node name="hq_floor46" type="MeshInstance" parent="Walls"]
+[node name="hq_floor46" type="MeshInstance" parent="Floor"]
 transform = Transform( -0.000803081, 0, 2, 0, 2, 0, -2, 0, -0.000803081, -4.62127, -2.01449, 50.7269 )
 mesh = ExtResource( 2 )
 skeleton = NodePath("")
 material/0 = null
 
-[node name="hq_floor47" type="MeshInstance" parent="Walls"]
+[node name="hq_floor47" type="MeshInstance" parent="Floor"]
 transform = Transform( -0.000803081, 0, 2, 0, 2, 0, -2, 0, -0.000803081, -4.61805, -2.01449, 58.7269 )
 mesh = ExtResource( 2 )
 skeleton = NodePath("")
 material/0 = null
 
-[node name="hq_floor48" type="MeshInstance" parent="Walls"]
+[node name="hq_floor48" type="MeshInstance" parent="Floor"]
 transform = Transform( -0.000803081, 0, 2, 0, 2, 0, -2, 0, -0.000803081, -4.61484, -2.01449, 66.7269 )
 mesh = ExtResource( 2 )
 skeleton = NodePath("")
 material/0 = null
 
-[node name="hq_floor49" type="MeshInstance" parent="Walls"]
+[node name="hq_floor49" type="MeshInstance" parent="Floor"]
 transform = Transform( -0.000803081, 0, 2, 0, 2, 0, -2, 0, -0.000803081, -12.6373, -2.01449, 10.7301 )
 mesh = ExtResource( 2 )
 skeleton = NodePath("")
 material/0 = null
 
-[node name="hq_floor50" type="MeshInstance" parent="Walls"]
+[node name="hq_floor50" type="MeshInstance" parent="Floor"]
 transform = Transform( -0.000803081, 0, 2, 0, 2, 0, -2, 0, -0.000803081, -12.6341, -2.01449, 18.7301 )
 mesh = ExtResource( 2 )
 skeleton = NodePath("")
 material/0 = null
 
-[node name="hq_floor51" type="MeshInstance" parent="Walls"]
+[node name="hq_floor51" type="MeshInstance" parent="Floor"]
 transform = Transform( -0.000803081, 0, 2, 0, 2, 0, -2, 0, -0.000803081, -12.6309, -2.01449, 26.7301 )
 mesh = ExtResource( 2 )
 skeleton = NodePath("")
 material/0 = null
 
-[node name="hq_floor52" type="MeshInstance" parent="Walls"]
+[node name="hq_floor52" type="MeshInstance" parent="Floor"]
 transform = Transform( -0.000803081, 0, 2, 0, 2, 0, -2, 0, -0.000803081, -12.6277, -2.01449, 34.7301 )
 mesh = ExtResource( 2 )
 skeleton = NodePath("")
 material/0 = null
 
-[node name="hq_floor53" type="MeshInstance" parent="Walls"]
+[node name="hq_floor53" type="MeshInstance" parent="Floor"]
 transform = Transform( -0.000803081, 0, 2, 0, 2, 0, -2, 0, -0.000803081, -12.6245, -2.01449, 42.7301 )
 mesh = ExtResource( 2 )
 skeleton = NodePath("")
 material/0 = null
 
-[node name="hq_floor54" type="MeshInstance" parent="Walls"]
+[node name="hq_floor54" type="MeshInstance" parent="Floor"]
 transform = Transform( -0.000803081, 0, 2, 0, 2, 0, -2, 0, -0.000803081, -12.6213, -2.01449, 50.7301 )
 mesh = ExtResource( 2 )
 skeleton = NodePath("")
 material/0 = null
 
-[node name="hq_floor55" type="MeshInstance" parent="Walls"]
+[node name="hq_floor55" type="MeshInstance" parent="Floor"]
 transform = Transform( -0.000803081, 0, 2, 0, 2, 0, -2, 0, -0.000803081, -12.6181, -2.01449, 58.7301 )
 mesh = ExtResource( 2 )
 skeleton = NodePath("")
 material/0 = null
 
-[node name="hq_floor56" type="MeshInstance" parent="Walls"]
+[node name="hq_floor56" type="MeshInstance" parent="Floor"]
 transform = Transform( -0.000803081, 0, 2, 0, 2, 0, -2, 0, -0.000803081, -12.6148, -2.01449, 66.7301 )
 mesh = ExtResource( 2 )
 skeleton = NodePath("")
 material/0 = null
 
-[node name="hq_floor57" type="MeshInstance" parent="Walls"]
+[node name="hq_floor57" type="MeshInstance" parent="Floor"]
 transform = Transform( -0.000803081, 0, 2, 0, 2, 0, -2, 0, -0.000803081, -20.6373, -2.01449, 10.7333 )
 mesh = ExtResource( 2 )
 skeleton = NodePath("")
 material/0 = null
 
-[node name="hq_floor58" type="MeshInstance" parent="Walls"]
+[node name="hq_floor58" type="MeshInstance" parent="Floor"]
 transform = Transform( -0.000803081, 0, 2, 0, 2, 0, -2, 0, -0.000803081, -20.6341, -2.01449, 18.7333 )
 mesh = ExtResource( 2 )
 skeleton = NodePath("")
 material/0 = null
 
-[node name="hq_floor59" type="MeshInstance" parent="Walls"]
+[node name="hq_floor59" type="MeshInstance" parent="Floor"]
 transform = Transform( -0.000803081, 0, 2, 0, 2, 0, -2, 0, -0.000803081, -20.6309, -2.01449, 26.7333 )
 mesh = ExtResource( 2 )
 skeleton = NodePath("")
 material/0 = null
 
-[node name="hq_floor60" type="MeshInstance" parent="Walls"]
+[node name="hq_floor60" type="MeshInstance" parent="Floor"]
 transform = Transform( -0.000803081, 0, 2, 0, 2, 0, -2, 0, -0.000803081, -20.6277, -2.01449, 34.7333 )
 mesh = ExtResource( 2 )
 skeleton = NodePath("")
 material/0 = null
 
-[node name="hq_floor61" type="MeshInstance" parent="Walls"]
+[node name="hq_floor61" type="MeshInstance" parent="Floor"]
 transform = Transform( -0.000803081, 0, 2, 0, 2, 0, -2, 0, -0.000803081, -20.6245, -2.01449, 42.7333 )
 mesh = ExtResource( 2 )
 skeleton = NodePath("")
 material/0 = null
 
-[node name="hq_floor62" type="MeshInstance" parent="Walls"]
+[node name="hq_floor62" type="MeshInstance" parent="Floor"]
 transform = Transform( -0.000803081, 0, 2, 0, 2, 0, -2, 0, -0.000803081, -20.6213, -2.01449, 50.7333 )
 mesh = ExtResource( 2 )
 skeleton = NodePath("")
 material/0 = null
 
-[node name="hq_floor63" type="MeshInstance" parent="Walls"]
+[node name="hq_floor63" type="MeshInstance" parent="Floor"]
 transform = Transform( -0.000803081, 0, 2, 0, 2, 0, -2, 0, -0.000803081, -20.6181, -2.01449, 58.7333 )
 mesh = ExtResource( 2 )
 skeleton = NodePath("")
 material/0 = null
 
-[node name="hq_floor64" type="MeshInstance" parent="Walls"]
+[node name="hq_floor64" type="MeshInstance" parent="Floor"]
 transform = Transform( -0.000803081, 0, 2, 0, 2, 0, -2, 0, -0.000803081, -20.6148, -2.01449, 66.7333 )
 mesh = ExtResource( 2 )
 skeleton = NodePath("")
 material/0 = null
 
-[node name="hq_floor65" type="MeshInstance" parent="Walls"]
+[node name="hq_floor65" type="MeshInstance" parent="Floor"]
 transform = Transform( -0.000803081, 0, 2, 0, 2, 0, -2, 0, -0.000803081, -28.6373, -2.01449, 10.7365 )
 mesh = ExtResource( 2 )
 skeleton = NodePath("")
 material/0 = null
 
-[node name="hq_floor66" type="MeshInstance" parent="Walls"]
+[node name="hq_floor66" type="MeshInstance" parent="Floor"]
 transform = Transform( -0.000803081, 0, 2, 0, 2, 0, -2, 0, -0.000803081, -28.6341, -2.01449, 18.7365 )
 mesh = ExtResource( 2 )
 skeleton = NodePath("")
 material/0 = null
 
-[node name="hq_floor67" type="MeshInstance" parent="Walls"]
+[node name="hq_floor67" type="MeshInstance" parent="Floor"]
 transform = Transform( -0.000803081, 0, 2, 0, 2, 0, -2, 0, -0.000803081, -28.6309, -2.01449, 26.7365 )
 mesh = ExtResource( 2 )
 skeleton = NodePath("")
 material/0 = null
 
-[node name="hq_floor68" type="MeshInstance" parent="Walls"]
+[node name="hq_floor68" type="MeshInstance" parent="Floor"]
 transform = Transform( -0.000803081, 0, 2, 0, 2, 0, -2, 0, -0.000803081, -28.6277, -2.01449, 34.7365 )
 mesh = ExtResource( 2 )
 skeleton = NodePath("")
 material/0 = null
 
-[node name="hq_floor69" type="MeshInstance" parent="Walls"]
+[node name="hq_floor69" type="MeshInstance" parent="Floor"]
 transform = Transform( -0.000803081, 0, 2, 0, 2, 0, -2, 0, -0.000803081, -28.6245, -2.01449, 42.7365 )
 mesh = ExtResource( 2 )
 skeleton = NodePath("")
 material/0 = null
 
-[node name="hq_floor70" type="MeshInstance" parent="Walls"]
+[node name="hq_floor70" type="MeshInstance" parent="Floor"]
 transform = Transform( -0.000803081, 0, 2, 0, 2, 0, -2, 0, -0.000803081, -28.6213, -2.01449, 50.7365 )
 mesh = ExtResource( 2 )
 skeleton = NodePath("")
 material/0 = null
 
-[node name="hq_floor71" type="MeshInstance" parent="Walls"]
+[node name="hq_floor71" type="MeshInstance" parent="Floor"]
 transform = Transform( -0.000803081, 0, 2, 0, 2, 0, -2, 0, -0.000803081, -28.6181, -2.01449, 58.7365 )
 mesh = ExtResource( 2 )
 skeleton = NodePath("")
 material/0 = null
 
-[node name="hq_floor72" type="MeshInstance" parent="Walls"]
+[node name="hq_floor72" type="MeshInstance" parent="Floor"]
 transform = Transform( -0.000803081, 0, 2, 0, 2, 0, -2, 0, -0.000803081, -28.6148, -2.01449, 66.7365 )
 mesh = ExtResource( 2 )
 skeleton = NodePath("")
 material/0 = null
 
-[node name="hq_server1" parent="Walls" instance=ExtResource( 5 )]
+[node name="hq_server1" parent="." instance=ExtResource( 5 )]
 transform = Transform( 0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 30, 4, 1 )
+skeleton = NodePath("../WorldEnvironment")
 
-[node name="hq_server3" parent="Walls" instance=ExtResource( 5 )]
+[node name="hq_server3" parent="." instance=ExtResource( 5 )]
 transform = Transform( 0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 21.5, 0, 1 )
+skeleton = NodePath("../WorldEnvironment")
 
 [node name="hq_table" type="MeshInstance" parent="."]
 transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -12, 0, 1 )
@@ -611,3 +626,5 @@ material/0 = null
 transform = Transform( 0.498097, 0, 0.0435779, 0, 0.5, 0, -0.0435779, 0, 0.498097, 26.7527, 4, 2.16734 )
 mesh = ExtResource( 7 )
 material/0 = null
+
+[connection signal="body_entered" from="Camera/WallDetector" to="Camera" method="_on_WallDetector_body_entered"]
