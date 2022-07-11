@@ -1,0 +1,16 @@
+[remap]
+
+importer="MagicaVoxel.With.Extensions"
+type="Mesh"
+path="res://.import/bush.vox-0e4636a0ccea79830e7c1312fd53f6a2.mesh"
+
+[deps]
+
+source_file="res://Assets/Models/Env/bush.vox"
+dest_files=[ "res://.import/bush.vox-0e4636a0ccea79830e7c1312fd53f6a2.mesh" ]
+
+[params]
+
+Scale=0.1
+GreedyMeshGenerator=true
+SnapToGround=false

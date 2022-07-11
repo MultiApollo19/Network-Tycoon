@@ -1,0 +1,16 @@
+[remap]
+
+importer="MagicaVoxel.With.Extensions"
+type="Mesh"
+path="res://.import/Road_crossing.vox-9cdc160c6a93a516ad6bc47aee9b7ed5.mesh"
+
+[deps]
+
+source_file="res://Assets/Models/Env/Road_crossing.vox"
+dest_files=[ "res://.import/Road_crossing.vox-9cdc160c6a93a516ad6bc47aee9b7ed5.mesh" ]
+
+[params]
+
+Scale=0.1
+GreedyMeshGenerator=true
+SnapToGround=false

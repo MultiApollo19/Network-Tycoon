@@ -1,0 +1,16 @@
+[remap]
+
+importer="MagicaVoxel.With.Extensions"
+type="Mesh"
+path="res://.import/Road_turn.vox-2b54e0cf02219982f88d4fad3e8bb42c.mesh"
+
+[deps]
+
+source_file="res://Assets/Models/Env/Road_turn.vox"
+dest_files=[ "res://.import/Road_turn.vox-2b54e0cf02219982f88d4fad3e8bb42c.mesh" ]
+
+[params]
+
+Scale=0.1
+GreedyMeshGenerator=true
+SnapToGround=false

@@ -6,7 +6,7 @@ extends Spatial
 # var b = "text"
 export var rotationSpeed=PI/2
 export var minZoom = 50
-export var maxZoom=120
+export var maxZoom=84
 export var zoom_speed=1.2
 
 var zoom =75

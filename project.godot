@@ -10,8 +10,8 @@ config_version=4
 
 [application]
 
-config/name="Project ISP_Souce"
-run/main_scene="res://Assets/Maps/DevScene.tscn"
+config/name="Project ISP"
+run/main_scene="res://Assets/Maps/Map1.tscn"
 boot_splash/fullsize=false
 config/icon="res://icon.png"
 
@@ -42,4 +42,6 @@ common/enable_pause_aware_picking=true
 
 [rendering]
 
+threads/thread_model=2
+threads/thread_safe_bvh=true
 environment/default_environment="res://default_env.tres"

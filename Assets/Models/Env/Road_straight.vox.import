@@ -1,0 +1,16 @@
+[remap]
+
+importer="MagicaVoxel.With.Extensions"
+type="Mesh"
+path="res://.import/Road_straight.vox-c5de42bc3c15738a316f150b7cf98d08.mesh"
+
+[deps]
+
+source_file="res://Assets/Models/Env/Road_straight.vox"
+dest_files=[ "res://.import/Road_straight.vox-c5de42bc3c15738a316f150b7cf98d08.mesh" ]
+
+[params]
+
+Scale=0.1
+GreedyMeshGenerator=true
+SnapToGround=false

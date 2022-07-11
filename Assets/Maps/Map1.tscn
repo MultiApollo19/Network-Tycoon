@@ -1,0 +1,1242 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://Assets/Config/Game_env.tres" type="Environment" id=1]
+[ext_resource path="res://Assets/Models/HQ/hq_floor.vox" type="ArrayMesh" id=2]
+[ext_resource path="res://Assets/Prefabs/HQ/hq_walls.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Assets/Models/HQ/hq_crt.vox" type="ArrayMesh" id=4]
+[ext_resource path="res://Assets/Prefabs/HQ/hq_serverold.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Assets/Models/HQ/hq_table.vox" type="ArrayMesh" id=6]
+[ext_resource path="res://Assets/Models/HQ/hq_oldkeyboard.vox" type="ArrayMesh" id=7]
+[ext_resource path="res://Assets/Models/HQ/hq_pcold.vox" type="ArrayMesh" id=8]
+[ext_resource path="res://Assets/Scripts/Walls.gd" type="Script" id=9]
+[ext_resource path="res://Assets/Scripts/CameraGimbal.gd" type="Script" id=10]
+[ext_resource path="res://Assets/Models/Env/tree1.vox" type="ArrayMesh" id=11]
+[ext_resource path="res://Assets/Models/Env/Road_straight.vox" type="ArrayMesh" id=12]
+[ext_resource path="res://Assets/Models/Env/Road_crossing.vox" type="ArrayMesh" id=13]
+[ext_resource path="res://Assets/Models/Env/Road_turn.vox" type="ArrayMesh" id=14]
+[ext_resource path="res://Assets/Models/Env/bush.vox" type="ArrayMesh" id=15]
+
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 73, 6, 34 )
+
+[node name="Scene" type="Spatial"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource( 1 )
+
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
+transform = Transform( 0.612372, -0.707107, -0.353554, 0.5, -2.2954e-08, 0.866025, -0.612372, -0.707107, 0.353554, 12.9519, 52.944, 33.5779 )
+light_energy = 1.753
+light_size = 0.11
+light_bake_mode = 0
+shadow_enabled = true
+
+[node name="CameraGimbal" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 36 )
+script = ExtResource( 10 )
+
+[node name="InnerGimbal" type="Spatial" parent="CameraGimbal"]
+
+[node name="Camera" type="Camera" parent="CameraGimbal/InnerGimbal"]
+transform = Transform( 0.707107, 0.353553, -0.612373, 0, 0.866026, 0.499999, 0.707107, -0.353553, 0.612373, -35.5258, 38.2964, 37.3118 )
+doppler_tracking = 1
+projection = 1
+current = true
+fov = 56.25
+size = 75.0
+near = 0.01
+far = 600.0
+script = ExtResource( 9 )
+
+[node name="WallDetector" type="Area" parent="CameraGimbal/InnerGimbal/Camera"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, -2.98023e-08, 1, 0, 0, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="CameraGimbal/InnerGimbal/Camera/WallDetector"]
+transform = Transform( 0.996195, -4.21468e-08, -0.0871558, -0.0435778, 0.866025, -0.498098, 0.0754792, 0.5, 0.86273, 6.36397, -16.7007, -25.0736 )
+shape = SubResource( 1 )
+
+[node name="Walls" type="Node" parent="."]
+
+[node name="hq_walls" parent="Walls" instance=ExtResource( 3 )]
+transform = Transform( -0.00363025, 0, 0.999998, 0, 2, 0, -2, 0, -0.00181512, 32.3376, -0.019073, 2.71634 )
+generate_lightmap = false
+
+[node name="hq_walls2" parent="Walls" instance=ExtResource( 3 )]
+transform = Transform( -0.00363025, 0, 0.999998, 0, 2, 0, -2, 0, -0.00181512, 32.3522, -0.019073, 10.7163 )
+generate_lightmap = false
+
+[node name="hq_walls3" parent="Walls" instance=ExtResource( 3 )]
+transform = Transform( -0.00363025, 0, 0.999998, 0, 2, 0, -2, 0, -0.00181512, 32.3667, -0.019073, 18.7163 )
+generate_lightmap = false
+
+[node name="hq_walls4" parent="Walls" instance=ExtResource( 3 )]
+transform = Transform( -0.00363025, 0, 0.999998, 0, 2, 0, -2, 0, -0.00181512, 32.3812, -0.019073, 26.7163 )
+generate_lightmap = false
+
+[node name="hq_walls5" parent="Walls" instance=ExtResource( 3 )]
+transform = Transform( -0.00363025, 0, 0.999998, 0, 2, 0, -2, 0, -0.00181512, 32.3957, -0.019073, 34.7163 )
+generate_lightmap = false
+
+[node name="hq_walls6" parent="Walls" instance=ExtResource( 3 )]
+transform = Transform( -0.00363025, 0, 0.999998, 0, 2, 0, -2, 0, -0.00181512, 32.4102, -0.019073, 42.7163 )
+generate_lightmap = false
+
+[node name="hq_walls7" parent="Walls" instance=ExtResource( 3 )]
+transform = Transform( -0.00363025, 0, 0.999998, 0, 2, 0, -2, 0, -0.00181512, 32.4248, -0.019073, 50.7163 )
+generate_lightmap = false
+
+[node name="hq_walls8" parent="Walls" instance=ExtResource( 3 )]
+transform = Transform( -0.00363025, 0, 0.999998, 0, 2, 0, -2, 0, -0.00181512, 32.4393, -0.019073, 58.7162 )
+generate_lightmap = false
+
+[node name="hq_walls9" parent="Walls" instance=ExtResource( 3 )]
+transform = Transform( -0.00363025, 0, 0.999998, 0, 2, 0, -2, 0, -0.00181512, 32.4538, -0.019073, 66.7162 )
+generate_lightmap = false
+
+[node name="hq_walls10" parent="Walls" instance=ExtResource( 3 )]
+transform = Transform( 2, 0, 0.00181508, 0, 2, 0, -0.00363016, 0, 0.999998, 27.4629, -0.019073, 71.7253 )
+generate_lightmap = false
+
+[node name="hq_walls11" parent="Walls" instance=ExtResource( 3 )]
+transform = Transform( 2, 0, 0.00181508, 0, 2, 0, -0.00363016, 0, 0.999998, 19.4629, -0.019073, 71.7398 )
+generate_lightmap = false
+
+[node name="hq_walls12" parent="Walls" instance=ExtResource( 3 )]
+transform = Transform( 2, 0, 0.00181508, 0, 2, 0, -0.00363016, 0, 0.999998, 11.4629, -0.019073, 71.7543 )
+generate_lightmap = false
+
+[node name="hq_walls13" parent="Walls" instance=ExtResource( 3 )]
+transform = Transform( 2, 0, 0.00181508, 0, 2, 0, -0.00363016, 0, 0.999998, 3.46293, -0.019073, 71.7688 )
+generate_lightmap = false
+
+[node name="hq_walls14" parent="Walls" instance=ExtResource( 3 )]
+transform = Transform( 2, 0, 0.00181508, 0, 2, 0, -0.00363016, 0, 0.999998, -4.53705, -0.019073, 71.7834 )
+generate_lightmap = false
+
+[node name="hq_walls15" parent="Walls" instance=ExtResource( 3 )]
+transform = Transform( 2, 0, 0.00181508, 0, 2, 0, -0.00363016, 0, 0.999998, -12.537, -0.019073, 71.7979 )
+generate_lightmap = false
+
+[node name="hq_walls16" parent="Walls" instance=ExtResource( 3 )]
+transform = Transform( 2, 0, 0.00181508, 0, 2, 0, -0.00363016, 0, 0.999998, -20.537, -0.019073, 71.8124 )
+generate_lightmap = false
+
+[node name="hq_walls17" parent="Walls" instance=ExtResource( 3 )]
+transform = Transform( 2, 0, 0.00181508, 0, 2, 0, -0.00363016, 0, 0.999998, -28.537, -0.019073, 71.8269 )
+generate_lightmap = false
+
+[node name="hq_walls18" parent="Walls" instance=ExtResource( 3 )]
+transform = Transform( 0.00363008, 0, -0.999998, 0, 2, 0, 2, 0, 0.00181504, -33.5461, -0.019073, 66.836 )
+generate_lightmap = false
+
+[node name="hq_walls19" parent="Walls" instance=ExtResource( 3 )]
+transform = Transform( 0.00363008, 0, -0.999998, 0, 2, 0, 2, 0, 0.00181504, -33.5606, -0.019073, 58.836 )
+generate_lightmap = false
+
+[node name="hq_walls20" parent="Walls" instance=ExtResource( 3 )]
+transform = Transform( 0.00363008, 0, -0.999998, 0, 2, 0, 2, 0, 0.00181504, -33.5751, -0.019073, 50.836 )
+generate_lightmap = false
+
+[node name="hq_walls21" parent="Walls" instance=ExtResource( 3 )]
+transform = Transform( 0.00363008, 0, -0.999998, 0, 2, 0, 2, 0, 0.00181504, -33.5896, -0.019073, 42.8361 )
+generate_lightmap = false
+
+[node name="hq_walls22" parent="Walls" instance=ExtResource( 3 )]
+transform = Transform( 0.00363008, 0, -0.999998, 0, 2, 0, 2, 0, 0.00181504, -33.6042, -0.019073, 34.8361 )
+generate_lightmap = false
+
+[node name="hq_walls23" parent="Walls" instance=ExtResource( 3 )]
+transform = Transform( 0.00363008, 0, -0.999998, 0, 2, 0, 2, 0, 0.00181504, -33.6187, -0.019073, 26.8361 )
+generate_lightmap = false
+
+[node name="hq_walls24" parent="Walls" instance=ExtResource( 3 )]
+transform = Transform( 0.00363008, 0, -0.999998, 0, 2, 0, 2, 0, 0.00181504, -33.6332, -0.019073, 18.8361 )
+generate_lightmap = false
+
+[node name="hq_walls25" parent="Walls" instance=ExtResource( 3 )]
+transform = Transform( 0.00363008, 0, -0.999998, 0, 2, 0, 2, 0, 0.00181504, -33.6477, -0.019073, 10.8361 )
+generate_lightmap = false
+
+[node name="hq_walls26" parent="Walls" instance=ExtResource( 3 )]
+transform = Transform( 0.00363008, 0, -0.999998, 0, 2, 0, 2, 0, 0.00181504, -33.6622, -0.019073, 2.83612 )
+generate_lightmap = false
+
+[node name="hq_walls27" parent="Walls" instance=ExtResource( 3 )]
+transform = Transform( -2, 0, -0.00181499, 0, 2, 0, 0.00362999, 0, -0.999998, -28.6713, -0.019073, -2.17295 )
+generate_lightmap = false
+
+[node name="hq_walls28" parent="Walls" instance=ExtResource( 3 )]
+transform = Transform( -2, 0, -0.00181499, 0, 2, 0, 0.00362999, 0, -0.999998, -20.6713, -0.019073, -2.18747 )
+generate_lightmap = false
+
+[node name="hq_walls29" parent="Walls" instance=ExtResource( 3 )]
+transform = Transform( -2, 0, -0.00181499, 0, 2, 0, 0.00362999, 0, -0.999998, -12.6713, -0.019073, -2.20199 )
+generate_lightmap = false
+
+[node name="hq_walls30" parent="Walls" instance=ExtResource( 3 )]
+transform = Transform( -2, 0, -0.00181499, 0, 2, 0, 0.00362999, 0, -0.999998, -4.67135, -0.019073, -2.21651 )
+generate_lightmap = false
+
+[node name="hq_walls31" parent="Walls" instance=ExtResource( 3 )]
+transform = Transform( -2, 0, -0.00181499, 0, 2, 0, 0.00362999, 0, -0.999998, 3.32864, -0.019073, -2.23103 )
+generate_lightmap = false
+
+[node name="hq_walls32" parent="Walls" instance=ExtResource( 3 )]
+transform = Transform( -2, 0, -0.00181499, 0, 2, 0, 0.00362999, 0, -0.999998, 11.3286, -0.019073, -2.24555 )
+generate_lightmap = false
+
+[node name="hq_walls33" parent="Walls" instance=ExtResource( 3 )]
+transform = Transform( -2, 0, -0.00181499, 0, 2, 0, 0.00362999, 0, -0.999998, 19.3286, -0.019073, -2.26007 )
+generate_lightmap = false
+
+[node name="hq_walls34" parent="Walls" instance=ExtResource( 3 )]
+transform = Transform( -2, 0, -0.00181499, 0, 2, 0, 0.00362999, 0, -0.999998, 27.3286, -0.019073, -2.27459 )
+generate_lightmap = false
+
+[node name="Floor" type="Node" parent="."]
+
+[node name="hq_floor" type="MeshInstance" parent="Floor"]
+transform = Transform( -0.000803081, 0, 2, 0, 2, 0, -2, 0, -0.000803081, 27.3595, -2.01449, 2.71407 )
+generate_lightmap = false
+mesh = ExtResource( 2 )
+skeleton = NodePath("")
+material/0 = null
+
+[node name="hq_floor10" type="MeshInstance" parent="Floor"]
+transform = Transform( -0.000803081, 0, 2, 0, 2, 0, -2, 0, -0.000803081, 19.3595, -2.01449, 2.71728 )
+generate_lightmap = false
+mesh = ExtResource( 2 )
+skeleton = NodePath("")
+material/0 = null
+
+[node name="hq_floor11" type="MeshInstance" parent="Floor"]
+transform = Transform( -0.000803081, 0, 2, 0, 2, 0, -2, 0, -0.000803081, 11.3595, -2.01449, 2.72049 )
+generate_lightmap = false
+mesh = ExtResource( 2 )
+skeleton = NodePath("")
+material/0 = null
+
+[node name="hq_floor12" type="MeshInstance" parent="Floor"]
+transform = Transform( -0.000803081, 0, 2, 0, 2, 0, -2, 0, -0.000803081, 3.35946, -2.01449, 2.7237 )
+generate_lightmap = false
+mesh = ExtResource( 2 )
+skeleton = NodePath("")
+material/0 = null
+
+[node name="hq_floor13" type="MeshInstance" parent="Floor"]
+transform = Transform( -0.000803081, 0, 2, 0, 2, 0, -2, 0, -0.000803081, -4.64054, -2.01449, 2.72692 )
+generate_lightmap = false
+mesh = ExtResource( 2 )
+skeleton = NodePath("")
+material/0 = null
+
+[node name="hq_floor14" type="MeshInstance" parent="Floor"]
+transform = Transform( -0.000803081, 0, 2, 0, 2, 0, -2, 0, -0.000803081, -12.6405, -2.01449, 2.73013 )
+generate_lightmap = false
+mesh = ExtResource( 2 )
+skeleton = NodePath("")
+material/0 = null
+
+[node name="hq_floor15" type="MeshInstance" parent="Floor"]
+transform = Transform( -0.000803081, 0, 2, 0, 2, 0, -2, 0, -0.000803081, -20.6405, -2.01449, 2.73334 )
+generate_lightmap = false
+mesh = ExtResource( 2 )
+skeleton = NodePath("")
+material/0 = null
+
+[node name="hq_floor16" type="MeshInstance" parent="Floor"]
+transform = Transform( -0.000803081, 0, 2, 0, 2, 0, -2, 0, -0.000803081, -28.6405, -2.01449, 2.73655 )
+generate_lightmap = false
+mesh = ExtResource( 2 )
+skeleton = NodePath("")
+material/0 = null
+
+[node name="hq_floor2" type="MeshInstance" parent="Floor"]
+transform = Transform( -0.000803081, 0, 2, 0, 2, 0, -2, 0, -0.000803081, 27.3627, -2.01449, 10.7141 )
+generate_lightmap = false
+mesh = ExtResource( 2 )
+skeleton = NodePath("")
+material/0 = null
+
+[node name="hq_floor3" type="MeshInstance" parent="Floor"]
+transform = Transform( -0.000803081, 0, 2, 0, 2, 0, -2, 0, -0.000803081, 27.3659, -2.01449, 18.7141 )
+generate_lightmap = false
+mesh = ExtResource( 2 )
+skeleton = NodePath("")
+material/0 = null
+
+[node name="hq_floor4" type="MeshInstance" parent="Floor"]
+transform = Transform( -0.000803081, 0, 2, 0, 2, 0, -2, 0, -0.000803081, 27.3691, -2.01449, 26.7141 )
+generate_lightmap = false
+mesh = ExtResource( 2 )
+skeleton = NodePath("")
+material/0 = null
+
+[node name="hq_floor5" type="MeshInstance" parent="Floor"]
+transform = Transform( -0.000803081, 0, 2, 0, 2, 0, -2, 0, -0.000803081, 27.3723, -2.01449, 34.7141 )
+generate_lightmap = false
+mesh = ExtResource( 2 )
+skeleton = NodePath("")
+material/0 = null
+
+[node name="hq_floor6" type="MeshInstance" parent="Floor"]
+transform = Transform( -0.000803081, 0, 2, 0, 2, 0, -2, 0, -0.000803081, 27.3755, -2.01449, 42.7141 )
+generate_lightmap = false
+mesh = ExtResource( 2 )
+skeleton = NodePath("")
+material/0 = null
+
+[node name="hq_floor7" type="MeshInstance" parent="Floor"]
+transform = Transform( -0.000803081, 0, 2, 0, 2, 0, -2, 0, -0.000803081, 27.3787, -2.01449, 50.7141 )
+generate_lightmap = false
+mesh = ExtResource( 2 )
+skeleton = NodePath("")
+material/0 = null
+
+[node name="hq_floor8" type="MeshInstance" parent="Floor"]
+transform = Transform( -0.000803081, 0, 2, 0, 2, 0, -2, 0, -0.000803081, 27.3819, -2.01449, 58.7141 )
+generate_lightmap = false
+mesh = ExtResource( 2 )
+skeleton = NodePath("")
+material/0 = null
+
+[node name="hq_floor9" type="MeshInstance" parent="Floor"]
+transform = Transform( -0.000803081, 0, 2, 0, 2, 0, -2, 0, -0.000803081, 27.3852, -2.01449, 66.7141 )
+generate_lightmap = false
+mesh = ExtResource( 2 )
+skeleton = NodePath("")
+material/0 = null
+
+[node name="hq_floor17" type="MeshInstance" parent="Floor"]
+transform = Transform( -0.000803081, 0, 2, 0, 2, 0, -2, 0, -0.000803081, 19.3627, -2.01449, 10.7173 )
+generate_lightmap = false
+mesh = ExtResource( 2 )
+skeleton = NodePath("")
+material/0 = null
+
+[node name="hq_floor18" type="MeshInstance" parent="Floor"]
+transform = Transform( -0.000803081, 0, 2, 0, 2, 0, -2, 0, -0.000803081, 19.3659, -2.01449, 18.7173 )
+generate_lightmap = false
+mesh = ExtResource( 2 )
+skeleton = NodePath("")
+material/0 = null
+
+[node name="hq_floor19" type="MeshInstance" parent="Floor"]
+transform = Transform( -0.000803081, 0, 2, 0, 2, 0, -2, 0, -0.000803081, 19.3691, -2.01449, 26.7173 )
+generate_lightmap = false
+mesh = ExtResource( 2 )
+skeleton = NodePath("")
+material/0 = null
+
+[node name="hq_floor20" type="MeshInstance" parent="Floor"]
+transform = Transform( -0.000803081, 0, 2, 0, 2, 0, -2, 0, -0.000803081, 19.3723, -2.01449, 34.7173 )
+generate_lightmap = false
+mesh = ExtResource( 2 )
+skeleton = NodePath("")
+material/0 = null
+
+[node name="hq_floor21" type="MeshInstance" parent="Floor"]
+transform = Transform( -0.000803081, 0, 2, 0, 2, 0, -2, 0, -0.000803081, 19.3755, -2.01449, 42.7173 )
+generate_lightmap = false
+mesh = ExtResource( 2 )
+skeleton = NodePath("")
+material/0 = null
+
+[node name="hq_floor22" type="MeshInstance" parent="Floor"]
+transform = Transform( -0.000803081, 0, 2, 0, 2, 0, -2, 0, -0.000803081, 19.3787, -2.01449, 50.7173 )
+generate_lightmap = false
+mesh = ExtResource( 2 )
+skeleton = NodePath("")
+material/0 = null
+
+[node name="hq_floor23" type="MeshInstance" parent="Floor"]
+transform = Transform( -0.000803081, 0, 2, 0, 2, 0, -2, 0, -0.000803081, 19.3819, -2.01449, 58.7173 )
+generate_lightmap = false
+mesh = ExtResource( 2 )
+skeleton = NodePath("")
+material/0 = null
+
+[node name="hq_floor24" type="MeshInstance" parent="Floor"]
+transform = Transform( -0.000803081, 0, 2, 0, 2, 0, -2, 0, -0.000803081, 19.3852, -2.01449, 66.7173 )
+generate_lightmap = false
+mesh = ExtResource( 2 )
+skeleton = NodePath("")
+material/0 = null
+
+[node name="hq_floor25" type="MeshInstance" parent="Floor"]
+transform = Transform( -0.000803081, 0, 2, 0, 2, 0, -2, 0, -0.000803081, 11.3627, -2.01449, 10.7205 )
+generate_lightmap = false
+mesh = ExtResource( 2 )
+skeleton = NodePath("")
+material/0 = null
+
+[node name="hq_floor26" type="MeshInstance" parent="Floor"]
+transform = Transform( -0.000803081, 0, 2, 0, 2, 0, -2, 0, -0.000803081, 11.3659, -2.01449, 18.7205 )
+generate_lightmap = false
+mesh = ExtResource( 2 )
+skeleton = NodePath("")
+material/0 = null
+
+[node name="hq_floor27" type="MeshInstance" parent="Floor"]
+transform = Transform( -0.000803081, 0, 2, 0, 2, 0, -2, 0, -0.000803081, 11.3691, -2.01449, 26.7205 )
+generate_lightmap = false
+mesh = ExtResource( 2 )
+skeleton = NodePath("")
+material/0 = null
+
+[node name="hq_floor28" type="MeshInstance" parent="Floor"]
+transform = Transform( -0.000803081, 0, 2, 0, 2, 0, -2, 0, -0.000803081, 11.3723, -2.01449, 34.7205 )
+generate_lightmap = false
+mesh = ExtResource( 2 )
+skeleton = NodePath("")
+material/0 = null
+
+[node name="hq_floor29" type="MeshInstance" parent="Floor"]
+transform = Transform( -0.000803081, 0, 2, 0, 2, 0, -2, 0, -0.000803081, 11.3755, -2.01449, 42.7205 )
+generate_lightmap = false
+mesh = ExtResource( 2 )
+skeleton = NodePath("")
+material/0 = null
+
+[node name="hq_floor30" type="MeshInstance" parent="Floor"]
+transform = Transform( -0.000803081, 0, 2, 0, 2, 0, -2, 0, -0.000803081, 11.3787, -2.01449, 50.7205 )
+generate_lightmap = false
+mesh = ExtResource( 2 )
+skeleton = NodePath("")
+material/0 = null
+
+[node name="hq_floor31" type="MeshInstance" parent="Floor"]
+transform = Transform( -0.000803081, 0, 2, 0, 2, 0, -2, 0, -0.000803081, 11.3819, -2.01449, 58.7205 )
+generate_lightmap = false
+mesh = ExtResource( 2 )
+skeleton = NodePath("")
+material/0 = null
+
+[node name="hq_floor32" type="MeshInstance" parent="Floor"]
+transform = Transform( -0.000803081, 0, 2, 0, 2, 0, -2, 0, -0.000803081, 11.3852, -2.01449, 66.7205 )
+generate_lightmap = false
+mesh = ExtResource( 2 )
+skeleton = NodePath("")
+material/0 = null
+
+[node name="hq_floor33" type="MeshInstance" parent="Floor"]
+transform = Transform( -0.000803081, 0, 2, 0, 2, 0, -2, 0, -0.000803081, 3.36267, -2.01449, 10.7237 )
+generate_lightmap = false
+mesh = ExtResource( 2 )
+skeleton = NodePath("")
+material/0 = null
+
+[node name="hq_floor34" type="MeshInstance" parent="Floor"]
+transform = Transform( -0.000803081, 0, 2, 0, 2, 0, -2, 0, -0.000803081, 3.36589, -2.01449, 18.7237 )
+generate_lightmap = false
+mesh = ExtResource( 2 )
+skeleton = NodePath("")
+material/0 = null
+
+[node name="hq_floor35" type="MeshInstance" parent="Floor"]
+transform = Transform( -0.000803081, 0, 2, 0, 2, 0, -2, 0, -0.000803081, 3.3691, -2.01449, 26.7237 )
+generate_lightmap = false
+mesh = ExtResource( 2 )
+skeleton = NodePath("")
+material/0 = null
+
+[node name="hq_floor36" type="MeshInstance" parent="Floor"]
+transform = Transform( -0.000803081, 0, 2, 0, 2, 0, -2, 0, -0.000803081, 3.37231, -2.01449, 34.7237 )
+generate_lightmap = false
+mesh = ExtResource( 2 )
+skeleton = NodePath("")
+material/0 = null
+
+[node name="hq_floor37" type="MeshInstance" parent="Floor"]
+transform = Transform( -0.000803081, 0, 2, 0, 2, 0, -2, 0, -0.000803081, 3.37552, -2.01449, 42.7237 )
+generate_lightmap = false
+mesh = ExtResource( 2 )
+skeleton = NodePath("")
+material/0 = null
+
+[node name="hq_floor38" type="MeshInstance" parent="Floor"]
+transform = Transform( -0.000803081, 0, 2, 0, 2, 0, -2, 0, -0.000803081, 3.37873, -2.01449, 50.7237 )
+generate_lightmap = false
+mesh = ExtResource( 2 )
+skeleton = NodePath("")
+material/0 = null
+
+[node name="hq_floor39" type="MeshInstance" parent="Floor"]
+transform = Transform( -0.000803081, 0, 2, 0, 2, 0, -2, 0, -0.000803081, 3.38195, -2.01449, 58.7237 )
+generate_lightmap = false
+mesh = ExtResource( 2 )
+skeleton = NodePath("")
+material/0 = null
+
+[node name="hq_floor40" type="MeshInstance" parent="Floor"]
+transform = Transform( -0.000803081, 0, 2, 0, 2, 0, -2, 0, -0.000803081, 3.38516, -2.01449, 66.7237 )
+generate_lightmap = false
+mesh = ExtResource( 2 )
+skeleton = NodePath("")
+material/0 = null
+
+[node name="hq_floor41" type="MeshInstance" parent="Floor"]
+transform = Transform( -0.000803081, 0, 2, 0, 2, 0, -2, 0, -0.000803081, -4.63733, -2.01449, 10.7269 )
+generate_lightmap = false
+mesh = ExtResource( 2 )
+skeleton = NodePath("")
+material/0 = null
+
+[node name="hq_floor42" type="MeshInstance" parent="Floor"]
+transform = Transform( -0.000803081, 0, 2, 0, 2, 0, -2, 0, -0.000803081, -4.63411, -2.01449, 18.7269 )
+generate_lightmap = false
+mesh = ExtResource( 2 )
+skeleton = NodePath("")
+material/0 = null
+
+[node name="hq_floor43" type="MeshInstance" parent="Floor"]
+transform = Transform( -0.000803081, 0, 2, 0, 2, 0, -2, 0, -0.000803081, -4.6309, -2.01449, 26.7269 )
+generate_lightmap = false
+mesh = ExtResource( 2 )
+skeleton = NodePath("")
+material/0 = null
+
+[node name="hq_floor44" type="MeshInstance" parent="Floor"]
+transform = Transform( -0.000803081, 0, 2, 0, 2, 0, -2, 0, -0.000803081, -4.62769, -2.01449, 34.7269 )
+generate_lightmap = false
+mesh = ExtResource( 2 )
+skeleton = NodePath("")
+material/0 = null
+
+[node name="hq_floor45" type="MeshInstance" parent="Floor"]
+transform = Transform( -0.000803081, 0, 2, 0, 2, 0, -2, 0, -0.000803081, -4.62448, -2.01449, 42.7269 )
+generate_lightmap = false
+mesh = ExtResource( 2 )
+skeleton = NodePath("")
+material/0 = null
+
+[node name="hq_floor46" type="MeshInstance" parent="Floor"]
+transform = Transform( -0.000803081, 0, 2, 0, 2, 0, -2, 0, -0.000803081, -4.62127, -2.01449, 50.7269 )
+generate_lightmap = false
+mesh = ExtResource( 2 )
+skeleton = NodePath("")
+material/0 = null
+
+[node name="hq_floor47" type="MeshInstance" parent="Floor"]
+transform = Transform( -0.000803081, 0, 2, 0, 2, 0, -2, 0, -0.000803081, -4.61805, -2.01449, 58.7269 )
+generate_lightmap = false
+mesh = ExtResource( 2 )
+skeleton = NodePath("")
+material/0 = null
+
+[node name="hq_floor48" type="MeshInstance" parent="Floor"]
+transform = Transform( -0.000803081, 0, 2, 0, 2, 0, -2, 0, -0.000803081, -4.61484, -2.01449, 66.7269 )
+generate_lightmap = false
+mesh = ExtResource( 2 )
+skeleton = NodePath("")
+material/0 = null
+
+[node name="hq_floor49" type="MeshInstance" parent="Floor"]
+transform = Transform( -0.000803081, 0, 2, 0, 2, 0, -2, 0, -0.000803081, -12.6373, -2.01449, 10.7301 )
+generate_lightmap = false
+mesh = ExtResource( 2 )
+skeleton = NodePath("")
+material/0 = null
+
+[node name="hq_floor50" type="MeshInstance" parent="Floor"]
+transform = Transform( -0.000803081, 0, 2, 0, 2, 0, -2, 0, -0.000803081, -12.6341, -2.01449, 18.7301 )
+generate_lightmap = false
+mesh = ExtResource( 2 )
+skeleton = NodePath("")
+material/0 = null
+
+[node name="hq_floor51" type="MeshInstance" parent="Floor"]
+transform = Transform( -0.000803081, 0, 2, 0, 2, 0, -2, 0, -0.000803081, -12.6309, -2.01449, 26.7301 )
+generate_lightmap = false
+mesh = ExtResource( 2 )
+skeleton = NodePath("")
+material/0 = null
+
+[node name="hq_floor52" type="MeshInstance" parent="Floor"]
+transform = Transform( -0.000803081, 0, 2, 0, 2, 0, -2, 0, -0.000803081, -12.6277, -2.01449, 34.7301 )
+generate_lightmap = false
+mesh = ExtResource( 2 )
+skeleton = NodePath("")
+material/0 = null
+
+[node name="hq_floor53" type="MeshInstance" parent="Floor"]
+transform = Transform( -0.000803081, 0, 2, 0, 2, 0, -2, 0, -0.000803081, -12.6245, -2.01449, 42.7301 )
+generate_lightmap = false
+mesh = ExtResource( 2 )
+skeleton = NodePath("")
+material/0 = null
+
+[node name="hq_floor54" type="MeshInstance" parent="Floor"]
+transform = Transform( -0.000803081, 0, 2, 0, 2, 0, -2, 0, -0.000803081, -12.6213, -2.01449, 50.7301 )
+generate_lightmap = false
+mesh = ExtResource( 2 )
+skeleton = NodePath("")
+material/0 = null
+
+[node name="hq_floor55" type="MeshInstance" parent="Floor"]
+transform = Transform( -0.000803081, 0, 2, 0, 2, 0, -2, 0, -0.000803081, -12.6181, -2.01449, 58.7301 )
+generate_lightmap = false
+mesh = ExtResource( 2 )
+skeleton = NodePath("")
+material/0 = null
+
+[node name="hq_floor56" type="MeshInstance" parent="Floor"]
+transform = Transform( -0.000803081, 0, 2, 0, 2, 0, -2, 0, -0.000803081, -12.6148, -2.01449, 66.7301 )
+generate_lightmap = false
+mesh = ExtResource( 2 )
+skeleton = NodePath("")
+material/0 = null
+
+[node name="hq_floor57" type="MeshInstance" parent="Floor"]
+transform = Transform( -0.000803081, 0, 2, 0, 2, 0, -2, 0, -0.000803081, -20.6373, -2.01449, 10.7333 )
+generate_lightmap = false
+mesh = ExtResource( 2 )
+skeleton = NodePath("")
+material/0 = null
+
+[node name="hq_floor58" type="MeshInstance" parent="Floor"]
+transform = Transform( -0.000803081, 0, 2, 0, 2, 0, -2, 0, -0.000803081, -20.6341, -2.01449, 18.7333 )
+generate_lightmap = false
+mesh = ExtResource( 2 )
+skeleton = NodePath("")
+material/0 = null
+
+[node name="hq_floor59" type="MeshInstance" parent="Floor"]
+transform = Transform( -0.000803081, 0, 2, 0, 2, 0, -2, 0, -0.000803081, -20.6309, -2.01449, 26.7333 )
+generate_lightmap = false
+mesh = ExtResource( 2 )
+skeleton = NodePath("")
+material/0 = null
+
+[node name="hq_floor60" type="MeshInstance" parent="Floor"]
+transform = Transform( -0.000803081, 0, 2, 0, 2, 0, -2, 0, -0.000803081, -20.6277, -2.01449, 34.7333 )
+generate_lightmap = false
+mesh = ExtResource( 2 )
+skeleton = NodePath("")
+material/0 = null
+
+[node name="hq_floor61" type="MeshInstance" parent="Floor"]
+transform = Transform( -0.000803081, 0, 2, 0, 2, 0, -2, 0, -0.000803081, -20.6245, -2.01449, 42.7333 )
+generate_lightmap = false
+mesh = ExtResource( 2 )
+skeleton = NodePath("")
+material/0 = null
+
+[node name="hq_floor62" type="MeshInstance" parent="Floor"]
+transform = Transform( -0.000803081, 0, 2, 0, 2, 0, -2, 0, -0.000803081, -20.6213, -2.01449, 50.7333 )
+generate_lightmap = false
+mesh = ExtResource( 2 )
+skeleton = NodePath("")
+material/0 = null
+
+[node name="hq_floor63" type="MeshInstance" parent="Floor"]
+transform = Transform( -0.000803081, 0, 2, 0, 2, 0, -2, 0, -0.000803081, -20.6181, -2.01449, 58.7333 )
+generate_lightmap = false
+mesh = ExtResource( 2 )
+skeleton = NodePath("")
+material/0 = null
+
+[node name="hq_floor64" type="MeshInstance" parent="Floor"]
+transform = Transform( -0.000803081, 0, 2, 0, 2, 0, -2, 0, -0.000803081, -20.6148, -2.01449, 66.7333 )
+generate_lightmap = false
+mesh = ExtResource( 2 )
+skeleton = NodePath("")
+material/0 = null
+
+[node name="hq_floor65" type="MeshInstance" parent="Floor"]
+transform = Transform( -0.000803081, 0, 2, 0, 2, 0, -2, 0, -0.000803081, -28.6373, -2.01449, 10.7365 )
+generate_lightmap = false
+mesh = ExtResource( 2 )
+skeleton = NodePath("")
+material/0 = null
+
+[node name="hq_floor66" type="MeshInstance" parent="Floor"]
+transform = Transform( -0.000803081, 0, 2, 0, 2, 0, -2, 0, -0.000803081, -28.6341, -2.01449, 18.7365 )
+generate_lightmap = false
+mesh = ExtResource( 2 )
+skeleton = NodePath("")
+material/0 = null
+
+[node name="hq_floor67" type="MeshInstance" parent="Floor"]
+transform = Transform( -0.000803081, 0, 2, 0, 2, 0, -2, 0, -0.000803081, -28.6309, -2.01449, 26.7365 )
+generate_lightmap = false
+mesh = ExtResource( 2 )
+skeleton = NodePath("")
+material/0 = null
+
+[node name="hq_floor68" type="MeshInstance" parent="Floor"]
+transform = Transform( -0.000803081, 0, 2, 0, 2, 0, -2, 0, -0.000803081, -28.6277, -2.01449, 34.7365 )
+generate_lightmap = false
+mesh = ExtResource( 2 )
+skeleton = NodePath("")
+material/0 = null
+
+[node name="hq_floor69" type="MeshInstance" parent="Floor"]
+transform = Transform( -0.000803081, 0, 2, 0, 2, 0, -2, 0, -0.000803081, -28.6245, -2.01449, 42.7365 )
+generate_lightmap = false
+mesh = ExtResource( 2 )
+skeleton = NodePath("")
+material/0 = null
+
+[node name="hq_floor70" type="MeshInstance" parent="Floor"]
+transform = Transform( -0.000803081, 0, 2, 0, 2, 0, -2, 0, -0.000803081, -28.6213, -2.01449, 50.7365 )
+generate_lightmap = false
+mesh = ExtResource( 2 )
+skeleton = NodePath("")
+material/0 = null
+
+[node name="hq_floor71" type="MeshInstance" parent="Floor"]
+transform = Transform( -0.000803081, 0, 2, 0, 2, 0, -2, 0, -0.000803081, -28.6181, -2.01449, 58.7365 )
+generate_lightmap = false
+mesh = ExtResource( 2 )
+skeleton = NodePath("")
+material/0 = null
+
+[node name="hq_floor72" type="MeshInstance" parent="Floor"]
+transform = Transform( -0.000803081, 0, 2, 0, 2, 0, -2, 0, -0.000803081, -28.6148, -2.01449, 66.7365 )
+generate_lightmap = false
+mesh = ExtResource( 2 )
+skeleton = NodePath("")
+material/0 = null
+
+[node name="Things (tmp)" type="Node" parent="."]
+
+[node name="hq_server1" parent="Things (tmp)" instance=ExtResource( 5 )]
+transform = Transform( 0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 30, 4, 1 )
+generate_lightmap = false
+
+[node name="hq_server3" parent="Things (tmp)" instance=ExtResource( 5 )]
+transform = Transform( 0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 21.5, 0, 1 )
+generate_lightmap = false
+
+[node name="hq_table" type="MeshInstance" parent="Things (tmp)"]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -12, 0, 1 )
+generate_lightmap = false
+mesh = ExtResource( 6 )
+skeleton = NodePath("../..")
+material/0 = null
+
+[node name="hq_table2" type="MeshInstance" parent="Things (tmp)"]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 27, 0, 1 )
+generate_lightmap = false
+mesh = ExtResource( 6 )
+skeleton = NodePath("../..")
+material/0 = null
+
+[node name="hq_crt" type="MeshInstance" parent="Things (tmp)"]
+transform = Transform( -0.634415, 0, -0.295833, 0, 0.7, 0, 0.295833, 0, -0.634415, 24.4175, 3.7, -0.0274752 )
+generate_lightmap = false
+mesh = ExtResource( 4 )
+skeleton = NodePath("../..")
+material/0 = null
+
+[node name="hq_table3" type="MeshInstance" parent="Things (tmp)"]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2.5, 16, 0, 1.4 )
+generate_lightmap = false
+mesh = ExtResource( 6 )
+skeleton = NodePath("../..")
+material/0 = null
+
+[node name="hq_crt2" type="MeshInstance" parent="Things (tmp)"]
+transform = Transform( -0.606218, 0, -0.35, 0, 0.7, 0, 0.35, 0, -0.606218, 13.7304, 5.2, 0.000961959 )
+generate_lightmap = false
+mesh = ExtResource( 4 )
+skeleton = NodePath("../..")
+material/0 = null
+
+[node name="hq_pcold" type="MeshInstance" parent="Things (tmp)"]
+transform = Transform( 0.606218, 0, 0.35, 0, 0.7, 0, -0.35, 0, 0.606218, 13.7304, 4, 0.0009619 )
+generate_lightmap = false
+mesh = ExtResource( 8 )
+skeleton = NodePath("../..")
+material/0 = null
+
+[node name="hq_oldkeyboard" type="MeshInstance" parent="Things (tmp)"]
+transform = Transform( 0.492404, 0, 0.0868241, 0, 0.5, 0, -0.0868241, 0, 0.492404, 17.3939, 4, 2.73054 )
+generate_lightmap = false
+mesh = ExtResource( 7 )
+skeleton = NodePath("../..")
+material/0 = null
+
+[node name="hq_oldkeyboard2" type="MeshInstance" parent="Things (tmp)"]
+transform = Transform( 0.498097, 0, 0.0435779, 0, 0.5, 0, -0.0435779, 0, 0.498097, 26.7527, 4, 2.16734 )
+generate_lightmap = false
+mesh = ExtResource( 7 )
+skeleton = NodePath("../..")
+material/0 = null
+
+[node name="Env" type="Node" parent="."]
+
+[node name="Vegetation" type="Node" parent="Env"]
+
+[node name="bush" type="MeshInstance" parent="Env/Vegetation"]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -48, 0, 68 )
+generate_lightmap = false
+mesh = ExtResource( 15 )
+material/0 = null
+
+[node name="bush2" type="MeshInstance" parent="Env/Vegetation"]
+transform = Transform( 1.93185, 0, 0.517638, 0, 2, 0, -0.517638, 0, 1.93185, -48, 0, 49 )
+generate_lightmap = false
+mesh = ExtResource( 15 )
+material/0 = null
+
+[node name="bush3" type="MeshInstance" parent="Env/Vegetation"]
+transform = Transform( -8.74228e-08, 0, -2, 0, 2, 0, 2, 0, -8.74228e-08, -48, 0, 31 )
+generate_lightmap = false
+mesh = ExtResource( 15 )
+material/0 = null
+
+[node name="bush4" type="MeshInstance" parent="Env/Vegetation"]
+transform = Transform( 1.41421, 0, 1.41421, 0, 2, 0, -1.41421, 0, 1.41421, -48, 0, 11 )
+generate_lightmap = false
+mesh = ExtResource( 15 )
+material/0 = null
+
+[node name="bush5" type="MeshInstance" parent="Env/Vegetation"]
+transform = Transform( 1.73205, 0, -1, 0, 2, 0, 1, 0, 1.73205, -48, 0, -11 )
+generate_lightmap = false
+mesh = ExtResource( 15 )
+material/0 = null
+
+[node name="bush6" type="MeshInstance" parent="Env/Vegetation"]
+transform = Transform( 1, 0, 1.73205, 0, 2, 0, -1.73205, 0, 1, -48, 0, -27 )
+generate_lightmap = false
+mesh = ExtResource( 15 )
+material/0 = null
+
+[node name="bush7" type="MeshInstance" parent="Env/Vegetation"]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -33, 0, -27 )
+generate_lightmap = false
+mesh = ExtResource( 15 )
+material/0 = null
+
+[node name="bush8" type="MeshInstance" parent="Env/Vegetation"]
+transform = Transform( -8.74228e-08, 0, -2, 0, 2, 0, 2, 0, -8.74228e-08, -17, 0, -27 )
+generate_lightmap = false
+mesh = ExtResource( 15 )
+material/0 = null
+
+[node name="bush9" type="MeshInstance" parent="Env/Vegetation"]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -1, 0, -27 )
+generate_lightmap = false
+mesh = ExtResource( 15 )
+material/0 = null
+
+[node name="bush10" type="MeshInstance" parent="Env/Vegetation"]
+transform = Transform( 0.517638, 0, 1.93185, 0, 2, 0, -1.93185, 0, 0.517638, 17, 0, -27 )
+generate_lightmap = false
+mesh = ExtResource( 15 )
+material/0 = null
+
+[node name="bush11" type="MeshInstance" parent="Env/Vegetation"]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 35, 0, -27 )
+generate_lightmap = false
+mesh = ExtResource( 15 )
+material/0 = null
+
+[node name="tree1" type="MeshInstance" parent="Env/Vegetation"]
+transform = Transform( 4, 0, 0, 0, 4, 0, 0, 0, 4, 86, 0, -32 )
+generate_lightmap = false
+lightmap_scale = 1
+mesh = ExtResource( 11 )
+material/0 = null
+
+[node name="tree2" type="MeshInstance" parent="Env/Vegetation"]
+transform = Transform( 1.03528, 0, 3.8637, 0, 4, 0, -3.8637, 0, 1.03528, -26, 0, -91 )
+generate_lightmap = false
+lightmap_scale = 1
+mesh = ExtResource( 11 )
+material/0 = null
+
+[node name="tree3" type="MeshInstance" parent="Env/Vegetation"]
+transform = Transform( 3.4641, 0, -2, 0, 4, 0, 2, 0, 3.4641, -2, 0, -91 )
+generate_lightmap = false
+lightmap_scale = 1
+mesh = ExtResource( 11 )
+material/0 = null
+
+[node name="tree4" type="MeshInstance" parent="Env/Vegetation"]
+transform = Transform( 3.4641, 0, -2, 0, 4, 0, 2, 0, 3.4641, -46, 0, -91 )
+generate_lightmap = false
+lightmap_scale = 1
+mesh = ExtResource( 11 )
+material/0 = null
+
+[node name="Grass" type="Node" parent="Env/Vegetation"]
+
+[node name="Roads" type="Node" parent="Env"]
+
+[node name="Road_straight" type="MeshInstance" parent="Env/Roads"]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -65, 0, 61 )
+generate_lightmap = false
+mesh = ExtResource( 12 )
+skeleton = NodePath("../../Vegetation")
+material/0 = null
+
+[node name="Road_straight2" type="MeshInstance" parent="Env/Roads"]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -65, 0, 45 )
+generate_lightmap = false
+mesh = ExtResource( 12 )
+skeleton = NodePath("../../Vegetation")
+material/0 = null
+
+[node name="Road_straight3" type="MeshInstance" parent="Env/Roads"]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -65, 0, 29 )
+generate_lightmap = false
+mesh = ExtResource( 12 )
+skeleton = NodePath("../../Vegetation")
+material/0 = null
+
+[node name="Road_straight4" type="MeshInstance" parent="Env/Roads"]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -65, 0, 13 )
+generate_lightmap = false
+mesh = ExtResource( 12 )
+skeleton = NodePath("../../Vegetation")
+material/0 = null
+
+[node name="Road_straight8" type="MeshInstance" parent="Env/Roads"]
+transform = Transform( -8.74228e-08, 0, 2, 0, 2, 0, -2, 0, -8.74228e-08, -49, 0, -51 )
+generate_lightmap = false
+mesh = ExtResource( 12 )
+skeleton = NodePath("../../Vegetation")
+material/0 = null
+
+[node name="Road_straight9" type="MeshInstance" parent="Env/Roads"]
+transform = Transform( -8.74228e-08, 0, 2, 0, 2, 0, -2, 0, -8.74228e-08, -33, 0, -51 )
+generate_lightmap = false
+mesh = ExtResource( 12 )
+skeleton = NodePath("../../Vegetation")
+material/0 = null
+
+[node name="Road_straight10" type="MeshInstance" parent="Env/Roads"]
+transform = Transform( -8.74228e-08, 0, 2, 0, 2, 0, -2, 0, -8.74228e-08, -17, 0, -51 )
+generate_lightmap = false
+mesh = ExtResource( 12 )
+skeleton = NodePath("../../Vegetation")
+material/0 = null
+
+[node name="Road_straight11" type="MeshInstance" parent="Env/Roads"]
+transform = Transform( -8.74228e-08, 0, 2, 0, 2, 0, -2, 0, -8.74228e-08, -1, 0, -51 )
+generate_lightmap = false
+mesh = ExtResource( 12 )
+skeleton = NodePath("../../Vegetation")
+material/0 = null
+
+[node name="Road_straight28" type="MeshInstance" parent="Env/Roads"]
+transform = Transform( -8.74228e-08, 0, 2, 0, 2, 0, -2, 0, -8.74228e-08, -129, 0, -51 )
+generate_lightmap = false
+mesh = ExtResource( 12 )
+skeleton = NodePath("../../Vegetation")
+material/0 = null
+
+[node name="Road_straight29" type="MeshInstance" parent="Env/Roads"]
+transform = Transform( -8.74228e-08, 0, 2, 0, 2, 0, -2, 0, -8.74228e-08, -113, 0, -51 )
+generate_lightmap = false
+mesh = ExtResource( 12 )
+skeleton = NodePath("../../Vegetation")
+material/0 = null
+
+[node name="Road_straight30" type="MeshInstance" parent="Env/Roads"]
+transform = Transform( -8.74228e-08, 0, 2, 0, 2, 0, -2, 0, -8.74228e-08, -97, 0, -51 )
+generate_lightmap = false
+mesh = ExtResource( 12 )
+skeleton = NodePath("../../Vegetation")
+material/0 = null
+
+[node name="Road_straight31" type="MeshInstance" parent="Env/Roads"]
+transform = Transform( -8.74228e-08, 0, 2, 0, 2, 0, -2, 0, -8.74228e-08, -81, 0, -51 )
+generate_lightmap = false
+mesh = ExtResource( 12 )
+skeleton = NodePath("../../Vegetation")
+material/0 = null
+
+[node name="Road_straight32" type="MeshInstance" parent="Env/Roads"]
+transform = Transform( -8.74228e-08, 0, 2, 0, 2, 0, -2, 0, -8.74228e-08, -193, 0, -51 )
+generate_lightmap = false
+mesh = ExtResource( 12 )
+skeleton = NodePath("../../Vegetation")
+material/0 = null
+
+[node name="Road_straight33" type="MeshInstance" parent="Env/Roads"]
+transform = Transform( -8.74228e-08, 0, 2, 0, 2, 0, -2, 0, -8.74228e-08, -177, 0, -51 )
+generate_lightmap = false
+mesh = ExtResource( 12 )
+skeleton = NodePath("../../Vegetation")
+material/0 = null
+
+[node name="Road_straight34" type="MeshInstance" parent="Env/Roads"]
+transform = Transform( -8.74228e-08, 0, 2, 0, 2, 0, -2, 0, -8.74228e-08, -161, 0, -51 )
+generate_lightmap = false
+mesh = ExtResource( 12 )
+skeleton = NodePath("../../Vegetation")
+material/0 = null
+
+[node name="Road_straight35" type="MeshInstance" parent="Env/Roads"]
+transform = Transform( -8.74228e-08, 0, 2, 0, 2, 0, -2, 0, -8.74228e-08, -145, 0, -51 )
+generate_lightmap = false
+mesh = ExtResource( 12 )
+skeleton = NodePath("../../Vegetation")
+material/0 = null
+
+[node name="Road_straight5" type="MeshInstance" parent="Env/Roads"]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -65, 0, -3 )
+generate_lightmap = false
+mesh = ExtResource( 12 )
+skeleton = NodePath("../../Vegetation")
+material/0 = null
+
+[node name="Road_straight6" type="MeshInstance" parent="Env/Roads"]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -65, 0, -19 )
+generate_lightmap = false
+mesh = ExtResource( 12 )
+skeleton = NodePath("../../Vegetation")
+material/0 = null
+
+[node name="Road_straight12" type="MeshInstance" parent="Env/Roads"]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 15, 0, -67 )
+generate_lightmap = false
+mesh = ExtResource( 12 )
+skeleton = NodePath("../../Vegetation")
+material/0 = null
+
+[node name="Road_straight13" type="MeshInstance" parent="Env/Roads"]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 15, 0, -83 )
+generate_lightmap = false
+mesh = ExtResource( 12 )
+skeleton = NodePath("../../Vegetation")
+material/0 = null
+
+[node name="Road_straight14" type="MeshInstance" parent="Env/Roads"]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 15, 0, -99 )
+generate_lightmap = false
+mesh = ExtResource( 12 )
+skeleton = NodePath("../../Vegetation")
+material/0 = null
+
+[node name="Road_straight15" type="MeshInstance" parent="Env/Roads"]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 15, 0, -115 )
+generate_lightmap = false
+mesh = ExtResource( 12 )
+skeleton = NodePath("../../Vegetation")
+material/0 = null
+
+[node name="Road_straight16" type="MeshInstance" parent="Env/Roads"]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 15, 0, -131 )
+generate_lightmap = false
+mesh = ExtResource( 12 )
+skeleton = NodePath("../../Vegetation")
+material/0 = null
+
+[node name="Road_straight17" type="MeshInstance" parent="Env/Roads"]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 15, 0, -147 )
+generate_lightmap = false
+mesh = ExtResource( 12 )
+skeleton = NodePath("../../Vegetation")
+material/0 = null
+
+[node name="Road_straight18" type="MeshInstance" parent="Env/Roads"]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 15, 0, -163 )
+generate_lightmap = false
+mesh = ExtResource( 12 )
+skeleton = NodePath("../../Vegetation")
+material/0 = null
+
+[node name="Road_straight19" type="MeshInstance" parent="Env/Roads"]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 15, 0, -179 )
+generate_lightmap = false
+mesh = ExtResource( 12 )
+skeleton = NodePath("../../Vegetation")
+material/0 = null
+
+[node name="Road_straight20" type="MeshInstance" parent="Env/Roads"]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -65, 0, -67 )
+generate_lightmap = false
+mesh = ExtResource( 12 )
+skeleton = NodePath("../../Vegetation")
+material/0 = null
+
+[node name="Road_straight21" type="MeshInstance" parent="Env/Roads"]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -65, 0, -83 )
+generate_lightmap = false
+mesh = ExtResource( 12 )
+skeleton = NodePath("../../Vegetation")
+material/0 = null
+
+[node name="Road_straight22" type="MeshInstance" parent="Env/Roads"]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -65, 0, -99 )
+generate_lightmap = false
+mesh = ExtResource( 12 )
+skeleton = NodePath("../../Vegetation")
+material/0 = null
+
+[node name="Road_straight23" type="MeshInstance" parent="Env/Roads"]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -65, 0, -115 )
+generate_lightmap = false
+mesh = ExtResource( 12 )
+skeleton = NodePath("../../Vegetation")
+material/0 = null
+
+[node name="Road_straight24" type="MeshInstance" parent="Env/Roads"]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -65, 0, -131 )
+generate_lightmap = false
+mesh = ExtResource( 12 )
+skeleton = NodePath("../../Vegetation")
+material/0 = null
+
+[node name="Road_straight25" type="MeshInstance" parent="Env/Roads"]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -65, 0, -147 )
+generate_lightmap = false
+mesh = ExtResource( 12 )
+skeleton = NodePath("../../Vegetation")
+material/0 = null
+
+[node name="Road_straight26" type="MeshInstance" parent="Env/Roads"]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -65, 0, -163 )
+generate_lightmap = false
+mesh = ExtResource( 12 )
+skeleton = NodePath("../../Vegetation")
+material/0 = null
+
+[node name="Road_straight27" type="MeshInstance" parent="Env/Roads"]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -65, 0, -179 )
+generate_lightmap = false
+mesh = ExtResource( 12 )
+skeleton = NodePath("../../Vegetation")
+material/0 = null
+
+[node name="Road_straight36" type="MeshInstance" parent="Env/Roads"]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -65, 0, 189 )
+generate_lightmap = false
+mesh = ExtResource( 12 )
+skeleton = NodePath("../../Vegetation")
+material/0 = null
+
+[node name="Road_straight37" type="MeshInstance" parent="Env/Roads"]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -65, 0, 173 )
+generate_lightmap = false
+mesh = ExtResource( 12 )
+skeleton = NodePath("../../Vegetation")
+material/0 = null
+
+[node name="Road_straight38" type="MeshInstance" parent="Env/Roads"]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -65, 0, 157 )
+generate_lightmap = false
+mesh = ExtResource( 12 )
+skeleton = NodePath("../../Vegetation")
+material/0 = null
+
+[node name="Road_straight39" type="MeshInstance" parent="Env/Roads"]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -65, 0, 141 )
+generate_lightmap = false
+mesh = ExtResource( 12 )
+skeleton = NodePath("../../Vegetation")
+material/0 = null
+
+[node name="Road_straight40" type="MeshInstance" parent="Env/Roads"]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -65, 0, 125 )
+generate_lightmap = false
+mesh = ExtResource( 12 )
+skeleton = NodePath("../../Vegetation")
+material/0 = null
+
+[node name="Road_straight41" type="MeshInstance" parent="Env/Roads"]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -65, 0, 109 )
+generate_lightmap = false
+mesh = ExtResource( 12 )
+skeleton = NodePath("../../Vegetation")
+material/0 = null
+
+[node name="Road_straight42" type="MeshInstance" parent="Env/Roads"]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -65, 0, 93 )
+generate_lightmap = false
+mesh = ExtResource( 12 )
+skeleton = NodePath("../../Vegetation")
+material/0 = null
+
+[node name="Road_straight43" type="MeshInstance" parent="Env/Roads"]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -65, 0, 77 )
+generate_lightmap = false
+mesh = ExtResource( 12 )
+skeleton = NodePath("../../Vegetation")
+material/0 = null
+
+[node name="Road_straight44" type="MeshInstance" parent="Env/Roads"]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -65, 0, 317 )
+generate_lightmap = false
+mesh = ExtResource( 12 )
+skeleton = NodePath("../../Vegetation")
+material/0 = null
+
+[node name="Road_straight45" type="MeshInstance" parent="Env/Roads"]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -65, 0, 301 )
+generate_lightmap = false
+mesh = ExtResource( 12 )
+skeleton = NodePath("../../Vegetation")
+material/0 = null
+
+[node name="Road_straight46" type="MeshInstance" parent="Env/Roads"]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -65, 0, 285 )
+generate_lightmap = false
+mesh = ExtResource( 12 )
+skeleton = NodePath("../../Vegetation")
+material/0 = null
+
+[node name="Road_straight47" type="MeshInstance" parent="Env/Roads"]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -65, 0, 269 )
+generate_lightmap = false
+mesh = ExtResource( 12 )
+skeleton = NodePath("../../Vegetation")
+material/0 = null
+
+[node name="Road_straight48" type="MeshInstance" parent="Env/Roads"]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -65, 0, 253 )
+generate_lightmap = false
+mesh = ExtResource( 12 )
+skeleton = NodePath("../../Vegetation")
+material/0 = null
+
+[node name="Road_straight49" type="MeshInstance" parent="Env/Roads"]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -65, 0, 237 )
+generate_lightmap = false
+mesh = ExtResource( 12 )
+skeleton = NodePath("../../Vegetation")
+material/0 = null
+
+[node name="Road_straight50" type="MeshInstance" parent="Env/Roads"]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -65, 0, 221 )
+generate_lightmap = false
+mesh = ExtResource( 12 )
+skeleton = NodePath("../../Vegetation")
+material/0 = null
+
+[node name="Road_straight51" type="MeshInstance" parent="Env/Roads"]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -65, 0, 205 )
+generate_lightmap = false
+mesh = ExtResource( 12 )
+skeleton = NodePath("../../Vegetation")
+material/0 = null
+
+[node name="Road_straight7" type="MeshInstance" parent="Env/Roads"]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -65, 0, -35 )
+generate_lightmap = false
+mesh = ExtResource( 12 )
+skeleton = NodePath("../../Vegetation")
+material/0 = null
+
+[node name="Road_turn" type="MeshInstance" parent="Env/Roads"]
+transform = Transform( -8.74228e-08, 0, 2, 0, 2, 0, -2, 0, -8.74228e-08, -0.999999, 0, -51 )
+generate_lightmap = false
+mesh = ExtResource( 14 )
+skeleton = NodePath("../../Vegetation")
+material/0 = null
+
+[node name="Road_crossing" type="MeshInstance" parent="Env/Roads"]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -65, 0, -35 )
+generate_lightmap = false
+mesh = ExtResource( 13 )
+skeleton = NodePath("../../Vegetation")
+material/0 = null
+
+[connection signal="body_entered" from="CameraGimbal/InnerGimbal/Camera/WallDetector" to="CameraGimbal/InnerGimbal/Camera" method="_on_WallDetector_body_entered"]
+[connection signal="body_exited" from="CameraGimbal/InnerGimbal/Camera/WallDetector" to="CameraGimbal/InnerGimbal/Camera" method="_on_WallDetector_body_exited"]
