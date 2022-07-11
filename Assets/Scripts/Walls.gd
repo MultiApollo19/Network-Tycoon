@@ -14,4 +14,6 @@ func _process(_delta):
 		#walls[i].active = false;
 		
 func _on_WallDetector_body_entered(body):
-	body.get_parent().queue_free()
+	body.get_parent().visible = false
+func _on_WallDetector_body_exited(body):
+	body.get_parent().visible = true
