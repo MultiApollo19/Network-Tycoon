@@ -1,0 +1,16 @@
+[remap]
+
+importer="MagicaVoxel.With.Extensions"
+type="Mesh"
+path="res://.import/hq_wall_window.vox-acb7ba68758693975dabbddfe9b54247.mesh"
+
+[deps]
+
+source_file="res://Assets/Models/HQ/hq_wall_window.vox"
+dest_files=[ "res://.import/hq_wall_window.vox-acb7ba68758693975dabbddfe9b54247.mesh" ]
+
+[params]
+
+Scale=0.1
+GreedyMeshGenerator=true
+SnapToGround=false

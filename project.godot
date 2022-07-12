@@ -817,6 +817,11 @@ run/main_scene="res://Assets/Scenes/Menu/Menu.tscn"
 boot_splash/fullsize=false
 config/icon="res://icon.png"
 
+[display]
+
+window/size/width=1920
+window/size/height=1080
+
 [editor_plugins]
 
 enabled=PoolStringArray( "res://addons/MagicaVoxel_Importer_with_Extensions/plugin.cfg", "res://addons/gdUnit3/plugin.cfg" )

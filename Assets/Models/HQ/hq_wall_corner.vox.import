@@ -1,0 +1,16 @@
+[remap]
+
+importer="MagicaVoxel.With.Extensions"
+type="Mesh"
+path="res://.import/hq_wall_corner.vox-91d5219a74e859f2ced184fe41808a18.mesh"
+
+[deps]
+
+source_file="res://Assets/Models/HQ/hq_wall_corner.vox"
+dest_files=[ "res://.import/hq_wall_corner.vox-91d5219a74e859f2ced184fe41808a18.mesh" ]
+
+[params]
+
+Scale=0.1
+GreedyMeshGenerator=true
+SnapToGround=false
