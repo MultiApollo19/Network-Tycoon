@@ -1,0 +1,16 @@
+[remap]
+
+importer="MagicaVoxel.With.Extensions"
+type="Mesh"
+path="res://.import/Sign_stop.vox-a6617325922065682979810900f151b0.mesh"
+
+[deps]
+
+source_file="res://Assets/Models/Env/Sign_stop.vox"
+dest_files=[ "res://.import/Sign_stop.vox-a6617325922065682979810900f151b0.mesh" ]
+
+[params]
+
+Scale=0.1
+GreedyMeshGenerator=true
+SnapToGround=false
