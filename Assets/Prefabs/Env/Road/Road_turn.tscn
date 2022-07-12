@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Assets/Models/Env/Road_turn.vox" type="ArrayMesh" id=1]
+
+[node name="Road_turn" type="MeshInstance"]
+transform = Transform( -8.74228e-08, 0, 2, 0, 2, 0, -2, 0, -8.74228e-08, -0.999999, 0, -51 )
+generate_lightmap = false
+mesh = ExtResource( 1 )
+skeleton = NodePath("")
+material/0 = null

@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Assets/Models/Env/bush.vox" type="ArrayMesh" id=3]
+[ext_resource path="res://Assets/Prefabs/Env/grass.tscn" type="PackedScene" id=4]
+
+[node name="Bush" type="Spatial"]
+
+[node name="bush" type="MeshInstance" parent="."]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 1.2, 0 )
+generate_lightmap = false
+mesh = ExtResource( 3 )
+skeleton = NodePath("")
+material/0 = null
+
+[node name="grass" parent="." instance=ExtResource( 4 )]
