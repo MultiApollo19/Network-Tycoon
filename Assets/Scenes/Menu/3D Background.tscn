@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Assets/Prefabs/HQ/hq_serverold.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Assets/Config/Game_env.tres" type="Environment" id=2]
+
+[node name="Spatial" type="Spatial"]
+
+[node name="hq_server1" parent="." instance=ExtResource( 1 )]
+transform = Transform( -8.74228e-08, 0, -2, 0, 2, 0, 2, 0, -8.74228e-08, 0, 0, 0 )
+
+[node name="InterpolatedCamera" type="InterpolatedCamera" parent="."]
+transform = Transform( 0.5, 0.224144, -0.836516, 0, 0.965926, 0.258819, 0.866025, -0.12941, 0.482963, -27.8802, 16.8021, 15.9612 )
+fov = 42.5
+
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
+transform = Transform( 0.866025, 5.96046e-08, -0.5, 0.433013, 0.5, 0.75, 0.25, -0.866025, 0.433013, -5, 4.66025, -4.76837e-07 )
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource( 2 )

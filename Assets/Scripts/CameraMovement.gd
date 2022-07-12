@@ -11,7 +11,9 @@ export var movement_friction = 50
 var x_mov=0
 var z_mov=0
 export var movement = Vector3(0,0,0)
-
+var reset_pos = Vector3(0,0,0)
+var reset_speed=1000
+var reset_acc=1000
 export var velocity = Vector3.ZERO
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -37,4 +39,5 @@ func get_input_keyboard(delta):
 	else:
 		velocity = velocity.move_toward(Vector3.ZERO,movement_friction*delta)
 
+	
 	move_and_slide(velocity)

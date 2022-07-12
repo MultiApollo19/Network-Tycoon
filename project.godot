@@ -813,13 +813,13 @@ _global_script_class_icons={
 [application]
 
 config/name="Project ISP"
-run/main_scene="res://Assets/Maps/Map1.tscn"
+run/main_scene="res://Assets/Scenes/Menu/Menu.tscn"
 boot_splash/fullsize=false
 config/icon="res://icon.png"
 
 [editor_plugins]
 
-enabled=PoolStringArray( "res://addons/MagicaVoxel_Importer_with_Extensions/plugin.cfg", "res://addons/dialogic/plugin.cfg", "res://addons/gdUnit3/plugin.cfg" )
+enabled=PoolStringArray( "res://addons/MagicaVoxel_Importer_with_Extensions/plugin.cfg", "res://addons/gdUnit3/plugin.cfg" )
 
 [gdnative]
 
