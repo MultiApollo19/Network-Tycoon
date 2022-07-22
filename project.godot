@@ -579,6 +579,16 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Addons/gdUnit3/src/core/LocalTime.gd"
 }, {
+"base": "Reference",
+"class": "NetworkM",
+"language": "GDScript",
+"path": "res://Assets/Scripts/Managers/Network/NetworkM.gd"
+}, {
+"base": "Resource",
+"class": "Network_line",
+"language": "GDScript",
+"path": "res://Assets/Scripts/Managers/Network/Line.gd"
+}, {
 "base": "GdUnitMonitor",
 "class": "PushErrorMonitor",
 "language": "GDScript",
@@ -789,6 +799,8 @@ _global_script_class_icons={
 "GdUnitVector3AssertImpl": "",
 "IntFuzzer": "",
 "LocalTime": "",
+"NetworkM": "",
+"Network_line": "",
 "PushErrorMonitor": "",
 "RPC": "",
 "RPCClientConnect": "",
@@ -812,19 +824,19 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Project ISP"
-run/main_scene="res://Assets/Scenes/Menu/Menu.tscn"
+config/name="Network Tycoon"
+run/main_scene="res://Assets/Scenes/Map1.tscn"
 boot_splash/fullsize=false
-config/icon="res://icon.png"
+config/icon="res://icon_new.png"
 
 [display]
 
-window/size/width=1920
-window/size/height=1080
+window/size/width=1280
+window/size/height=720
 
 [editor_plugins]
 
-enabled=PoolStringArray( "res://addons/MagicaVoxel_Importer_with_Extensions/plugin.cfg", "res://addons/gdUnit3/plugin.cfg" )
+enabled=PoolStringArray( "res://addons/MagicaVoxel_Importer_with_Extensions/plugin.cfg", "res://addons/gdUnit3/plugin.cfg", "res://addons/versionmanager/plugin.cfg" )
 
 [gdnative]
 

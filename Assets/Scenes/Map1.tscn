@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Assets/Meshlibs/Vegetation.meshlib" type="MeshLibrary" id=1]
 [ext_resource path="res://Assets/Prefabs/HQ/hq_floor.tscn" type="PackedScene" id=2]
@@ -20,6 +20,7 @@
 [ext_resource path="res://Assets/Models/HQ/hq_wall_corner.vox" type="ArrayMesh" id=18]
 [ext_resource path="res://Assets/Models/HQ/hq_wall_window.vox" type="ArrayMesh" id=19]
 [ext_resource path="res://Assets/Models/HQ/hq_outer_doors.vox" type="ArrayMesh" id=20]
+[ext_resource path="res://Assets/Scripts/Managers/Network/NetworkManager.gd" type="Script" id=21]
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 73, 6, 34 )
@@ -599,16 +600,46 @@ generate_lightmap = false
 skeleton = NodePath("../../../WorldEnvironment")
 
 [node name="hq_server3" parent="Objects/Things_tmp" instance=ExtResource( 6 )]
-transform = Transform( 0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 21.5, 0, 1 )
+transform = Transform( 1.35157, 0, 0, 0, 1.35157, 0, 0, 0, 1.35157, 14.5, 0, 2 )
+visible = false
 generate_lightmap = false
 skeleton = NodePath("../../../WorldEnvironment")
 
-[node name="hq_table" type="MeshInstance" parent="Objects/Things_tmp"]
-transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -12, 0, 1 )
+[node name="hq_server4" parent="Objects/Things_tmp" instance=ExtResource( 6 )]
+transform = Transform( 1.35157, 0, 0, 0, 1.35157, 0, 0, 0, 1.35157, 10.2, 0, 2 )
+visible = false
 generate_lightmap = false
-mesh = ExtResource( 14 )
-skeleton = NodePath("../../..")
-material/0 = null
+skeleton = NodePath("../../../WorldEnvironment")
+
+[node name="hq_server6" parent="Objects/Things_tmp" instance=ExtResource( 6 )]
+transform = Transform( 1.35157, 0, 0, 0, 1.35157, 0, 0, 0, 1.35157, 5.9, 0, 2 )
+visible = false
+generate_lightmap = false
+skeleton = NodePath("../../../WorldEnvironment")
+
+[node name="hq_server7" parent="Objects/Things_tmp" instance=ExtResource( 6 )]
+transform = Transform( 1.35157, 0, 0, 0, 1.35157, 0, 0, 0, 1.35157, 1.6, 0, 2 )
+visible = false
+generate_lightmap = false
+skeleton = NodePath("../../../WorldEnvironment")
+
+[node name="hq_server8" parent="Objects/Things_tmp" instance=ExtResource( 6 )]
+transform = Transform( 1.35157, 0, 0, 0, 1.35157, 0, 0, 0, 1.35157, -2.7, 0, 2 )
+visible = false
+generate_lightmap = false
+skeleton = NodePath("../../../WorldEnvironment")
+
+[node name="hq_server9" parent="Objects/Things_tmp" instance=ExtResource( 6 )]
+transform = Transform( 1.35157, 0, 0, 0, 1.35157, 0, 0, 0, 1.35157, -7, 0, 2 )
+visible = false
+generate_lightmap = false
+skeleton = NodePath("../../../WorldEnvironment")
+
+[node name="hq_server5" parent="Objects/Things_tmp" instance=ExtResource( 6 )]
+transform = Transform( 1.35157, 0, 0, 0, 1.35157, 0, 0, 0, 1.35157, 18.9, 0, 2 )
+visible = false
+generate_lightmap = false
+skeleton = NodePath("../../../WorldEnvironment")
 
 [node name="hq_table2" type="MeshInstance" parent="Objects/Things_tmp"]
 transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 27, 0, 1 )
@@ -684,6 +715,7 @@ transform = Transform( -0.020077, 0, 50, 0, 2, 0, -50, 0, -0.020077, 132.043, -2
 transform = Transform( -0.020077, 0, 50, 0, 2, 0, -50, 0, -0.020077, 14.073, -2, 172.673 )
 
 [node name="Control" type="Control" parent="."]
+visible = false
 margin_right = 1920.0
 margin_bottom = 1080.0
 mouse_filter = 2
@@ -712,6 +744,11 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9, -1, -134 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -52, 2, 79 )
 mesh = ExtResource( 16 )
 material/0 = null
+
+[node name="Managers" type="Node" parent="."]
+
+[node name="NetworkManager" type="Node" parent="Managers"]
+script = ExtResource( 21 )
 
 [connection signal="body_entered" from="WallDetectorGimbal/InnerGimbal/WallDetector" to="WallDetectorGimbal/InnerGimbal/WallDetector" method="_on_WallDetector_body_entered"]
 [connection signal="body_exited" from="WallDetectorGimbal/InnerGimbal/WallDetector" to="WallDetectorGimbal/InnerGimbal/WallDetector" method="_on_WallDetector_body_exited"]
