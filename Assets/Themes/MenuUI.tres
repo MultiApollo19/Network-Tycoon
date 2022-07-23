@@ -1,12 +1,20 @@
-[gd_resource type="Theme" load_steps=5 format=2]
+[gd_resource type="Theme" load_steps=7 format=2]
 
-[ext_resource path="res://Assets/Fonts/Arcade.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Assets/Fonts/Arcade_ui.tres" type="DynamicFont" id=1]
 
-[sub_resource type="StyleBoxFlat" id=1]
-corner_detail = 9
+[sub_resource type="StreamTexture" id=4]
+flags = 4
+load_path = "res://.import/Button_hover.svg-7313360fa703d5e965e88674160f13aa.stex"
 
-[sub_resource type="StyleBoxFlat" id=2]
-bg_color = Color( 0, 0.6, 0.278431, 1 )
+[sub_resource type="StyleBoxTexture" id=5]
+texture = SubResource( 4 )
+
+[sub_resource type="StreamTexture" id=6]
+flags = 4
+load_path = "res://.import/Button.svg-54310136eb5b4c30bcd794ed792ea8f8.stex"
+
+[sub_resource type="StyleBoxTexture" id=7]
+texture = SubResource( 6 )
 
 [sub_resource type="StyleBoxFlat" id=3]
 bg_color = Color( 0.0627451, 0.423529, 0.25098, 1 )
@@ -22,6 +30,6 @@ Button/constants/hseparation = 2
 Button/fonts/font = ExtResource( 1 )
 Button/styles/disabled = null
 Button/styles/focus = null
-Button/styles/hover = SubResource( 1 )
-Button/styles/normal = SubResource( 2 )
+Button/styles/hover = SubResource( 5 )
+Button/styles/normal = SubResource( 7 )
 Button/styles/pressed = SubResource( 3 )

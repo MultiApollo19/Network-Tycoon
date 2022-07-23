@@ -1,41 +1,97 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Assets/Themes/MenuUI.tres" type="Theme" id=1]
 [ext_resource path="res://Assets/Scenes/Menu/3D Background.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Assets/Scripts/Menu.gd" type="Script" id=3]
 [ext_resource path="res://Assets/Scripts/Managers/GameAnalytics.gd" type="Script" id=4]
+[ext_resource path="res://Assets/Fonts/Arcade_ui_title.tres" type="DynamicFont" id=5]
+[ext_resource path="res://Assets/Textures/UI/Menu/PC.svg" type="Texture" id=6]
+[ext_resource path="res://Assets/Textures/UI/Menu/Serv.svg" type="Texture" id=7]
 
 [node name="Menu_world" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0.501961, 0.505882, 1 )
+
+[node name="Pc" type="Sprite" parent="."]
+position = Vector2( 458, 359 )
+scale = Vector2( 1.20207, 1.20207 )
+texture = ExtResource( 6 )
+
+[node name="Serv" type="Sprite" parent="."]
+position = Vector2( 1540, 680 )
+scale = Vector2( 0.88039, 0.88039 )
+texture = ExtResource( 7 )
+
+[node name="Title" type="Control" parent="."]
+margin_left = 3.0
+margin_top = -30.0
+margin_right = 34.0
+margin_bottom = 7.0
+
+[node name="Network" type="Label" parent="Title"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = 532.0
+margin_top = 105.5
+margin_right = 1362.0
+margin_bottom = 412.5
+rect_pivot_offset = Vector2( -601, 427 )
+theme = ExtResource( 1 )
+custom_fonts/font = ExtResource( 5 )
+text = "Network"
+align = 1
+valign = 1
+
+[node name="Tycoon" type="Label" parent="Title"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = 855.0
+margin_top = 208.5
+margin_right = 1655.0
+margin_bottom = 571.5
+rect_pivot_offset = Vector2( -601, 427 )
+theme = ExtResource( 1 )
+custom_fonts/font = ExtResource( 5 )
+text = "Tycoon"
+align = 1
+valign = 1
+
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 anchor_top = 1.0
 anchor_bottom = 1.0
 margin_left = 68.0
-margin_top = -223.0
-margin_right = 321.0
+margin_top = -346.0
+margin_right = 477.0
 margin_bottom = -51.0
 theme = ExtResource( 1 )
 
 [node name="StartBtn" type="Button" parent="VBoxContainer"]
-margin_right = 253.0
-margin_bottom = 54.0
+margin_right = 409.0
+margin_bottom = 95.0
 size_flags_vertical = 3
 theme = ExtResource( 1 )
 text = "Start"
 
 [node name="OptionsBtn" type="Button" parent="VBoxContainer"]
-margin_top = 58.0
-margin_right = 253.0
-margin_bottom = 113.0
+margin_top = 99.0
+margin_right = 409.0
+margin_bottom = 195.0
 size_flags_vertical = 3
 text = "Options"
 
 [node name="ExitBtn" type="Button" parent="VBoxContainer"]
-margin_top = 117.0
-margin_right = 253.0
-margin_bottom = 172.0
+margin_top = 199.0
+margin_right = 409.0
+margin_bottom = 295.0
 size_flags_vertical = 3
 text = "Quit"
 
@@ -64,7 +120,7 @@ margin_top = -70.0
 margin_right = -11.0
 margin_bottom = -7.0
 theme = ExtResource( 1 )
-text = "0.1-alpha2"
+text = "VErsiom"
 align = 2
 valign = 1
 
@@ -74,5 +130,5 @@ script = ExtResource( 3 )
 [node name="GameAnalytics" type="Node" parent="."]
 script = ExtResource( 4 )
 
-[connection signal="pressed" from="VBoxContainer/StartBtn" to="." method="_on_StartBtn_pressed"]
-[connection signal="pressed" from="VBoxContainer/ExitBtn" to="." method="_on_ExitBtn_pressed"]
+[connection signal="pressed" from="VBoxContainer/StartBtn" to="Menu" method="_on_StartBtn_pressed"]
+[connection signal="pressed" from="VBoxContainer/ExitBtn" to="Menu" method="_on_ExitBtn_pressed"]

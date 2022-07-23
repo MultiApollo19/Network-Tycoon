@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://Assets/Meshlibs/Vegetation.meshlib" type="MeshLibrary" id=1]
 [ext_resource path="res://Assets/Prefabs/HQ/hq_floor.tscn" type="PackedScene" id=2]
@@ -16,12 +16,14 @@
 [ext_resource path="res://Assets/Models/HQ/hq_table.vox" type="ArrayMesh" id=14]
 [ext_resource path="res://Assets/Models/HQ/hq_crt.vox" type="ArrayMesh" id=15]
 [ext_resource path="res://Assets/Models/Env/Sign_stop.vox" type="ArrayMesh" id=16]
-[ext_resource path="res://Assets/Fonts/Arcade.tres" type="DynamicFont" id=17]
+[ext_resource path="res://Assets/Fonts/Arcade_ui_label.tres" type="DynamicFont" id=17]
 [ext_resource path="res://Assets/Models/HQ/hq_wall_corner.vox" type="ArrayMesh" id=18]
 [ext_resource path="res://Assets/Models/HQ/hq_wall_window.vox" type="ArrayMesh" id=19]
 [ext_resource path="res://Assets/Models/HQ/hq_outer_doors.vox" type="ArrayMesh" id=20]
 [ext_resource path="res://Assets/Scripts/Managers/Network/NetworkManager.gd" type="Script" id=21]
 [ext_resource path="res://Assets/Scripts/Managers/GameManager.gd" type="Script" id=22]
+[ext_resource path="res://Assets/Textures/UI/Game/Base/Background.svg" type="Texture" id=23]
+[ext_resource path="res://Assets/Textures/UI/Game/Base/Time.svg" type="Texture" id=24]
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 74, 6, 34 )
@@ -38,25 +40,32 @@ light_size = 0.11
 light_bake_mode = 0
 shadow_enabled = true
 
-[node name="Control" type="Control" parent="."]
-visible = false
+[node name="UI" type="Control" parent="."]
 margin_right = 1920.0
 margin_bottom = 1080.0
 mouse_filter = 2
 
-[node name="Label" type="Label" parent="Control"]
+[node name="Alpha" type="Label" parent="UI"]
+modulate = Color( 1, 1, 1, 0.341176 )
 anchor_left = 1.0
-anchor_top = 1.0
 anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -347.0
-margin_top = -113.0
-margin_right = -35.0
-margin_bottom = -55.0
+margin_left = -611.0
+margin_bottom = 58.0
 custom_fonts/font = ExtResource( 17 )
 text = "Alpha version"
 align = 1
 valign = 1
+clip_text = true
+
+[node name="Background" type="Sprite" parent="UI"]
+position = Vector2( 384.894, 52 )
+scale = Vector2( 1.16282, 1.14894 )
+texture = ExtResource( 23 )
+
+[node name="Time" type="Sprite" parent="UI/Background"]
+position = Vector2( -210.603, 8.7037 )
+scale = Vector2( 0.794494, 0.804096 )
+texture = ExtResource( 24 )
 
 [node name="Managers" type="Node" parent="."]
 
