@@ -1,0 +1,16 @@
+[remap]
+
+importer="MagicaVoxel.With.Extensions"
+type="Mesh"
+path="res://.import/cable.vox-8464b9e14b07bfe312d0ebdbf6842f0c.mesh"
+
+[deps]
+
+source_file="res://Assets/Models/Network/cable.vox"
+dest_files=[ "res://.import/cable.vox-8464b9e14b07bfe312d0ebdbf6842f0c.mesh" ]
+
+[params]
+
+Scale=0.1
+GreedyMeshGenerator=true
+SnapToGround=false

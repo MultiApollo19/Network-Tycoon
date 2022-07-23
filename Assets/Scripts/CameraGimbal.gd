@@ -26,10 +26,8 @@ func _process(delta):
 func _unhandled_input(event):
 	if event.is_action_pressed("cam_zoom_in"):
 		zoom-=zoom_speed
-		print("HEE")
 	if event.is_action_pressed("cam_zoom_out"):
 		zoom+=zoom_speed
-		print("SSEEE")
 	zoom = clamp(zoom,minZoom,maxZoom)
 	camera.size =zoom
 	
